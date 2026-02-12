@@ -1,926 +1,900 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposition MOBIL-E-T /// BAPTISTE FORT</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-black': '#1a1a1a',
-                        'brand-white': '#fafafa',
-                        'brand-gray': '#f5f5f5',
-                        'brand-gold': '#C9A962',
-                        'brand-gold-light': '#E8D5A3',
-                        'brand-blue': '#4A6FA5',
-                        'brand-red': '#e53935',
-                        'brand-green': '#43a047',
-                    },
-                    fontFamily: {
-                        sans: ['Space Grotesk', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    boxShadow: {
-                        'hard': '4px 4px 0px 0px #1a1a1a',
-                        'hard-sm': '2px 2px 0px 0px #1a1a1a',
-                        'gold': '4px 4px 0px 0px #C9A962',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        * { cursor: default; }
-        body { background-color: #fafafa; overflow-x: hidden; }
-        .border-hard { border: 2px solid #1a1a1a; }
-        .marquee-container { overflow: hidden; white-space: nowrap; }
-        .marquee-content { display: inline-block; animation: marquee 40s linear infinite; }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .brut-box {
-            background: white;
-            border: 2px solid #1a1a1a;
-            box-shadow: 4px 4px 0px 0px #1a1a1a;
-            transition: all 0.3s ease;
-        }
-        .brut-box:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px #1a1a1a;
-        }
-        .tag {
-            display: inline-block;
-            background: #1a1a1a;
-            color: white;
-            padding: 4px 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .tag-gold { background: #C9A962; color: #1a1a1a; }
-        .tag-red { background: #e53935; color: white; }
-        .tag-green { background: #43a047; color: white; }
-        .tag-blue { background: #4A6FA5; color: white; }
-        ul.check-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        ul.check-list li::before {
-            content: '\2192';
-            position: absolute;
-            left: 0;
-            color: #C9A962;
-            font-weight: bold;
-        }
-        .section-header { background: #1a1a1a; color: white; }
-        .gold-accent { color: #C9A962; }
-        .bg-gold-accent { background: #C9A962; }
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        a { cursor: pointer; }
-        .timeline-item { position: relative; padding-left: 2rem; }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: #C9A962;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 8px;
-            width: 13px;
-            height: 13px;
-            background: #C9A962;
-            border: 2px solid #1a1a1a;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baptiste Fort — Proposition Mobil-e-t pour Thierry</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{fontFamily:{'inter':['Inter','sans-serif'],'grotesk':['Space Grotesk','sans-serif'],'mono':['JetBrains Mono','monospace'],'space':['Space Mono','monospace']},colors:{'neo':{'black':'#0a0a0a','white':'#fefefe','blue':'#4361ee','purple':'#7209b7','pink':'#f72585','orange':'#ff6b35','green':'#06d6a0','yellow':'#ffd166','red':'#ef233c','cyan':'#00b4d8','gray':'#f8f9fa','dark':'#121212'}}}}}
+</script>
+<style>
+*{scroll-behavior:smooth;margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fefefe;color:#0a0a0a;overflow-x:hidden}
+::selection{background:#4361ee;color:#fff}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#fefefe;border-left:3px solid #0a0a0a}::-webkit-scrollbar-thumb{background:#0a0a0a}
+.neo-border{border:3px solid #0a0a0a}.neo-border-2{border:2px solid #0a0a0a}
+.neo-shadow{box-shadow:6px 6px 0 #0a0a0a}.neo-shadow-sm{box-shadow:4px 4px 0 #0a0a0a}
+.neo-card{border:3px solid #0a0a0a;box-shadow:6px 6px 0 #0a0a0a;transition:all .2s cubic-bezier(.16,1,.3,1);background:#fff}
+.neo-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 #0a0a0a}
+.neo-btn{border:3px solid #0a0a0a;box-shadow:4px 4px 0 #0a0a0a;transition:all .15s ease;cursor:pointer;font-weight:700}
+.neo-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #0a0a0a}
+.neo-btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #0a0a0a}
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes popIn{0%{opacity:0;transform:scale(0) rotate(-10deg)}80%{transform:scale(1.1) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes slideBg{0%{background-position:0 0}100%{background-position:40px 40px}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.anim{opacity:0;transition:all .8s cubic-bezier(.16,1,.3,1)}
+.anim.v{opacity:1}.anim.v.fu{animation:fadeUp .8s cubic-bezier(.16,1,.3,1) forwards}.anim.v.fl{animation:fadeLeft .8s cubic-bezier(.16,1,.3,1) forwards}.anim.v.fr{animation:fadeRight .8s cubic-bezier(.16,1,.3,1) forwards}.anim.v.si{animation:scaleIn .8s cubic-bezier(.16,1,.3,1) forwards}.anim.v.pop{animation:popIn .6s cubic-bezier(.16,1,.3,1) forwards}
+.d1{animation-delay:.1s!important}.d2{animation-delay:.2s!important}.d3{animation-delay:.3s!important}.d4{animation-delay:.4s!important}.d5{animation-delay:.5s!important}.d6{animation-delay:.6s!important}.d7{animation-delay:.7s!important}.d8{animation-delay:.8s!important}
+.float{animation:float 3s ease-in-out infinite}.marquee{animation:marquee 25s linear infinite}.egg:hover{transform:rotate(360deg) scale(1.3);transition:all .3s}
+.gradient-bg{background:linear-gradient(-45deg,#4361ee,#7209b7,#f72585,#ff6b35);background-size:400% 400%;animation:gradient 6s ease infinite}
+.gradient-text{background:linear-gradient(-45deg,#4361ee,#7209b7,#f72585);background-size:400% 400%;animation:gradient 4s ease infinite;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stripe-bg{background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.03) 10px,rgba(0,0,0,.03) 20px);animation:slideBg 1s linear infinite}
+.tab-btn{position:relative;transition:all .3s}.tab-btn.active{color:#4361ee;background:#e8edff}.tab-btn.active::after{content:'';position:absolute;bottom:-3px;left:20%;right:20%;height:4px;background:#4361ee}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.wa-float{background:#25D366;transition:all .3s}.wa-float:hover{background:#128C7E;transform:scale(1.1) rotate(-5deg)}
+.li-float{background:#0A66C2;transition:all .3s}.li-float:hover{background:#004182;transform:scale(1.1) rotate(5deg)}
+.sec-label{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.ticker-wrap{overflow:hidden}.ticker{display:inline-flex;white-space:nowrap}
+.counter{font-variant-numeric:tabular-nums}
+.mob-menu{transform:translateX(100%);transition:transform .3s ease}.mob-menu.open{transform:translateX(0)}
+.click-burst{pointer-events:none;position:fixed;z-index:9999}
+</style>
 </head>
-
-<body class="text-brand-black selection:bg-brand-gold selection:text-black">
-
-    <!-- NAV -->
-    <nav class="fixed top-0 w-full z-50 bg-white border-b-2 border-brand-black flex justify-between items-stretch">
-        <div class="px-6 py-4 bg-brand-black text-white font-display font-bold text-xl tracking-tight flex items-center">
-            BAPTISTE<span class="text-brand-gold">/</span>FORT
-        </div>
-        <div class="hidden md:flex flex-1 items-center overflow-hidden bg-brand-gold border-l-2 border-brand-black border-r-2">
-            <div class="marquee-container w-full font-mono font-medium text-xs text-brand-black">
-                <div class="marquee-content">
-                    &nbsp;&nbsp;&nbsp;MOBIL-E-T /// AUTOMATISATION /// N8N /// CHATBOT IA /// SEO /// GEO /// LINKEDIN /// DASHBOARD&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;MOBIL-E-T /// AUTOMATISATION /// N8N /// CHATBOT IA /// SEO /// GEO /// LINKEDIN /// DASHBOARD&nbsp;&nbsp;&nbsp;
-                </div>
-            </div>
-        </div>
-        <a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="px-6 py-4 font-mono font-medium hover:bg-brand-black hover:text-white transition-colors cursor-pointer text-xs flex items-center tracking-wide">
-            LINKEDIN
-        </a>
-    </nav>
-
-    <!-- HEADER -->
-    <header class="pt-28 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <div class="bg-white border-hard p-8 md:p-12 shadow-hard mb-10 relative">
-            <div class="absolute -top-3 -left-3 bg-brand-gold text-brand-black font-mono font-medium px-4 py-2 text-xs tracking-wide">
-                NOUVELLE PROPOSITION
-            </div>
-
-            <h1 class="font-display font-black text-4xl md:text-6xl mb-8 leading-tight">
-                Bonjour Thierry,<br>
-                <span class="gold-accent">suite a notre appel.</span>
-            </h1>
-
-            <div class="space-y-5 text-base font-sans font-normal max-w-3xl text-brand-black/80">
-                <p>J'ai pris le temps de revoir l'ensemble du projet apres notre echange. Voici une proposition ajustee, plus precise, avec un planning concret pour que vous puissiez vous projeter.</p>
-                <p>L'objectif reste le meme : <strong class="text-brand-black">vous faire gagner du temps</strong>. Tout ce qui est presente ici tourne en automatique. Vous n'avez rien a saisir, rien a remplir. Le systeme travaille pour vous pendant que vous vous concentrez sur ce qui compte vraiment : vos clients et vos ventes.</p>
-                            </div>
-        </div>
-
-        <!-- INFO -->
-        <div class="grid md:grid-cols-2 gap-6 items-stretch">
-            <div class="bg-brand-gold border-hard p-8 flex flex-col justify-center">
-                <p class="mb-2 font-mono text-xs text-brand-black/60 tracking-wide">DEMARRAGE</p>
-                <h3 class="font-bold font-mono text-2xl mb-3 border-b-2 border-brand-black pb-2">10 FEVRIER 2026</h3>
-                <p class="text-brand-black font-medium text-sm">Livraison complete debut mai</p>
-            </div>
-            <div class="bg-brand-black text-white border-hard p-8 flex flex-col justify-center">
-                <p class="text-brand-gold font-mono text-xs mb-3 tracking-wider">// POUR</p>
-                <h3 class="font-display font-bold text-2xl mb-3">MOBIL-E-T</h3>
-                <p class="text-white/70 text-sm">Distribution de motos-velos electriques premium DAHU & VENOM</p>
-            </div>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main class="px-4 md:px-8 max-w-6xl mx-auto pb-24 space-y-16">
-
-        <!-- PLANNING -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">Planning du projet</h2>
-                <span class="tag tag-gold">CALENDRIER</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <p class="text-lg mb-8 max-w-3xl">Voici comment le projet se deroule concretement. Chaque etape est independante : vous voyez les resultats au fur et a mesure, pas a la fin.</p>
-
-                <!-- Timeline visuelle -->
-                <div class="bg-brand-black text-white p-6 mb-8 border-hard overflow-x-auto">
-                    <div class="flex items-center justify-between min-w-[600px] font-mono text-xs">
-                        <div class="text-center">
-                            <div class="bg-brand-gold text-brand-black px-3 py-2 font-bold mb-2">10 FEV</div>
-                            <p class="text-white/60">Debut</p>
-                        </div>
-                        <div class="flex-1 h-1 bg-brand-gold mx-2"></div>
-                        <div class="text-center">
-                            <div class="bg-brand-gold text-brand-black px-3 py-2 font-bold mb-2">10 MARS</div>
-                            <p class="text-white/60">SAV OK</p>
-                        </div>
-                        <div class="flex-1 h-1 bg-brand-gold mx-2"></div>
-                        <div class="text-center">
-                            <div class="bg-brand-gold text-brand-black px-3 py-2 font-bold mb-2">10 AVR</div>
-                            <p class="text-white/60">Dashboard OK</p>
-                        </div>
-                        <div class="flex-1 h-1 bg-brand-gold mx-2"></div>
-                        <div class="text-center">
-                            <div class="bg-brand-gold text-brand-black px-3 py-2 font-bold mb-2">24 AVR</div>
-                            <p class="text-white/60">SEO OK</p>
-                        </div>
-                        <div class="flex-1 h-1 bg-brand-gold mx-2"></div>
-                        <div class="text-center">
-                            <div class="bg-brand-green text-white px-3 py-2 font-bold mb-2">5 MAI</div>
-                            <p class="text-white/60">Termine</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detail des phases -->
-                <div class="space-y-6">
-
-                    <div class="timeline-item border-hard p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="tag tag-red mb-2">PHASE 1</span>
-                                <h4 class="font-display font-bold text-xl mt-2">SAV & Memoire IA</h4>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-mono text-sm text-brand-black/60">10 fev → 10 mars</p>
-                                <p class="font-display font-black text-xl">1 mois</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-brand-black/70">Le coeur du systeme. Une fois en place, l'IA connait vos produits, vos clients, vos pannes. Elle vous assiste sur chaque demande SAV sans que vous ayez a chercher l'info.</p>
-                    </div>
-
-                    <div class="timeline-item border-hard p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="tag tag-gold mb-2">PHASE 2</span>
-                                <h4 class="font-display font-bold text-xl mt-2">Dashboard & Chatbot IA</h4>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-mono text-sm text-brand-black/60">10 mars → 10 avril</p>
-                                <p class="font-display font-black text-xl">1 mois</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-brand-black/70">Votre tableau de bord avec toutes vos donnees. Plus besoin de jongler entre 5 outils. Vous posez une question au chatbot, il vous repond avec vos chiffres reels.</p>
-                    </div>
-
-                    <div class="timeline-item border-hard p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="tag tag-blue mb-2">PHASE 3</span>
-                                <h4 class="font-display font-bold text-xl mt-2">Blog SEO & GEO</h4>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-mono text-sm text-brand-black/60">10 avril → 24 avril</p>
-                                <p class="font-display font-black text-xl">2 semaines</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-brand-black/70">Articles automatises pour Google ET pour ChatGPT/Perplexity. Le systeme identifie les bons mots-cles et publie du contenu qui vous rend visible la ou vos clients cherchent.</p>
-                    </div>
-
-                    <div class="timeline-item border-hard p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="tag tag-green mb-2">PHASE 4</span>
-                                <h4 class="font-display font-bold text-xl mt-2">LinkedIn Automatise</h4>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-mono text-sm text-brand-black/60">24 avril → 5 mai</p>
-                                <p class="font-display font-black text-xl">1.5 semaines</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-brand-black/70">Presence reguliere sur LinkedIn avec du contenu coherent. Le systeme publie pour vous, vous restez visible sans y passer du temps.</p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 01 : SAV & MEMOIRE IA -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">SAV & Memoire IA</h2>
-                <span class="tag tag-red">SECTION 01</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <div class="grid md:grid-cols-2 gap-6 mb-10">
-                    <div class="bg-brand-gold p-6 border-hard">
-                        <h4 class="font-display font-bold text-xl mb-3">Le probleme aujourd'hui</h4>
-                        <p class="text-sm">Vous gerez le SAV via votre site, votre boite mail, et les echanges avec l'Italie. A chaque demande, vous devez retrouver l'historique, les specs du produit, les cas similaires. Ca prend du temps.</p>
-                    </div>
-                    <div class="bg-brand-black text-white p-6 border-hard">
-                        <h4 class="font-display font-bold text-xl mb-3">La solution</h4>
-                        <p class="text-sm text-white/80">Une memoire IA qui connait tout : vos produits, vos clients, vos pannes passees. Elle vous assiste instantanement sur chaque demande, sans que vous ayez a chercher.</p>
-                    </div>
-                </div>
-
-                <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// CE QUE LA MEMOIRE CONTIENT</h4>
-                <div class="grid md:grid-cols-3 gap-4 mb-10">
-                    <div class="border-hard p-4">
-                        <p class="font-bold text-sm mb-2">Produits</p>
-                        <ul class="text-xs text-brand-black/70 space-y-1">
-                            <li>- DAHU, VENOM, toutes versions</li>
-                            <li>- Fiches techniques completes</li>
-                            <li>- Numeros de chassis</li>
-                            <li>- Garanties et conditions</li>
-                        </ul>
-                    </div>
-                    <div class="border-hard p-4">
-                        <p class="font-bold text-sm mb-2">Historique SAV</p>
-                        <ul class="text-xs text-brand-black/70 space-y-1">
-                            <li>- Pannes connues et recurrentes</li>
-                            <li>- Procedures de diagnostic</li>
-                            <li>- Solutions appliquees</li>
-                            <li>- Echanges avec l'Italie</li>
-                        </ul>
-                    </div>
-                    <div class="border-hard p-4">
-                        <p class="font-bold text-sm mb-2">Clients</p>
-                        <ul class="text-xs text-brand-black/70 space-y-1">
-                            <li>- Historique des achats</li>
-                            <li>- Demandes precedentes</li>
-                            <li>- Contexte de chaque echange</li>
-                            <li>- Pieces jointes et docs</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// COMMENT CA MARCHE CONCRETEMENT</h4>
-                <div class="bg-brand-gray p-6 border-hard mb-10">
-                    <div class="grid md:grid-cols-4 gap-4 text-center">
-                        <div>
-                            <div class="bg-brand-black text-white w-12 h-12 flex items-center justify-center font-display font-black text-xl mx-auto mb-3">1</div>
-                            <p class="text-sm font-bold mb-1">Email arrive</p>
-                            <p class="text-xs text-brand-black/60">Le systeme le detecte automatiquement</p>
-                        </div>
-                        <div>
-                            <div class="bg-brand-black text-white w-12 h-12 flex items-center justify-center font-display font-black text-xl mx-auto mb-3">2</div>
-                            <p class="text-sm font-bold mb-1">IA analyse</p>
-                            <p class="text-xs text-brand-black/60">Identifie le client, le produit, le probleme</p>
-                        </div>
-                        <div>
-                            <div class="bg-brand-black text-white w-12 h-12 flex items-center justify-center font-display font-black text-xl mx-auto mb-3">3</div>
-                            <p class="text-sm font-bold mb-1">Contexte enrichi</p>
-                            <p class="text-xs text-brand-black/60">Recupere l'historique et les cas similaires</p>
-                        </div>
-                        <div>
-                            <div class="bg-brand-gold text-brand-black w-12 h-12 flex items-center justify-center font-display font-black text-xl mx-auto mb-3">4</div>
-                            <p class="text-sm font-bold mb-1">Vous decidez</p>
-                            <p class="text-xs text-brand-black/60">Reponse preparee, vous validez ou ajustez</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Italie -->
-                <div class="border-2 border-brand-blue p-6 bg-brand-blue/10">
-                    <h4 class="font-display font-bold text-lg mb-4 text-brand-blue">Echanges avec l'Italie</h4>
-                    <p class="text-sm mb-4">Pour les demandes de garantie ou les cas techniques complexes, l'IA prepare automatiquement :</p>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <ul class="check-list text-sm">
-                            <li>Description technique exacte du probleme</li>
-                            <li>Traduction fidele, sans approximation</li>
-                        </ul>
-                        <ul class="check-list text-sm">
-                            <li>Historique complet du produit joint</li>
-                            <li>References et numeros de chassis</li>
-                        </ul>
-                    </div>
-                    <p class="text-xs text-brand-black/60 mt-4">Plus d'allers-retours inutiles. L'Italie recoit directement un dossier complet.</p>
-                </div>
-
-                <!-- Budget -->
-                <div class="mt-10 bg-brand-black text-white p-6 border-hard flex justify-between items-center">
-                    <div>
-                        <p class="text-brand-gold font-mono text-xs mb-2">BUDGET SECTION 01</p>
-                        <p class="text-white/70 text-sm">Memoire IA + connexion emails + integration site</p>
-                    </div>
-                    <p class="font-display font-black text-3xl">3 600 <span class="text-lg text-white/60">EUR</span></p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 02 : DASHBOARD & CHATBOT -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">Dashboard & Chatbot IA</h2>
-                <span class="tag tag-gold">SECTION 02</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <p class="text-lg mb-8 max-w-3xl">Un seul endroit pour tout voir. Plus besoin d'ouvrir Google Analytics, puis Stripe, puis vos emails. Tout est la, et vous pouvez poser des questions en langage naturel.</p>
-
-                <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// VOS KPIs EN TEMPS REEL</h4>
-
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-
-                    <!-- Google Analytics -->
-                    <div class="border-hard p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-[#F9AB00] flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-display font-bold">Google Analytics</h4>
-                        </div>
-                        <p class="text-xs text-brand-black/60 mb-4">Recuperation automatique</p>
-                        <ul class="text-sm space-y-2">
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Visiteurs</span>
-                                <span class="font-mono text-xs">temps reel</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Pages vues</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Sources de trafic</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Taux de rebond</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Stripe -->
-                    <div class="border-hard p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-[#635BFF] flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-display font-bold">Stripe</h4>
-                        </div>
-                        <p class="text-xs text-brand-black/60 mb-4">Recuperation automatique</p>
-                        <ul class="text-sm space-y-2">
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Chiffre d'affaires</span>
-                                <span class="font-mono text-xs">temps reel</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Nombre de ventes</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Panier moyen</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Paiements echoues</span>
-                                <span class="font-mono text-xs">alerte auto</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Search Console -->
-                    <div class="border-hard p-6">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-[#4285F4] flex items-center justify-center">
-                                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-display font-bold">Search Console</h4>
-                        </div>
-                        <p class="text-xs text-brand-black/60 mb-4">Recuperation automatique</p>
-                        <ul class="text-sm space-y-2">
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Impressions Google</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Clics</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Position moyenne</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                            <li class="flex justify-between p-2 bg-brand-gray">
-                                <span>Mots-cles</span>
-                                <span class="font-mono text-xs">automatique</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <!-- Chatbot -->
-                <div class="bg-brand-black text-white p-8 border-hard mb-10">
-                    <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// LE CHATBOT IA</h4>
-                    <p class="text-lg mb-6">Au lieu de naviguer dans des tableaux, vous posez simplement vos questions :</p>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/10 p-4 border border-white/20">
-                            <p class="text-brand-gold font-mono text-xs mb-2">VOUS DEMANDEZ</p>
-                            <p class="italic">"Combien de visiteurs ce mois-ci ?"</p>
-                        </div>
-                        <div class="bg-brand-gold/20 p-4 border border-brand-gold">
-                            <p class="text-brand-gold font-mono text-xs mb-2">LE CHATBOT REPOND</p>
-                            <p>"Ce mois-ci : 2 847 visiteurs, +12% vs mois dernier. Les pages DAHU R1 et configurateur sont les plus vues."</p>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 mt-4">
-                        <div class="bg-white/10 p-4 border border-white/20">
-                            <p class="text-brand-gold font-mono text-xs mb-2">VOUS DEMANDEZ</p>
-                            <p class="italic">"Quel est mon CA depuis janvier ?"</p>
-                        </div>
-                        <div class="bg-brand-gold/20 p-4 border border-brand-gold">
-                            <p class="text-brand-gold font-mono text-xs mb-2">LE CHATBOT REPOND</p>
-                            <p>"CA depuis janvier : 47 200 EUR. 8 ventes. Panier moyen : 5 900 EUR. Dernier paiement il y a 3 jours."</p>
-                        </div>
-                    </div>
-
-                    <p class="text-white/60 text-sm mt-6">Le chatbot a acces a toutes vos donnees connectees. Il comprend le contexte et vous donne des reponses precises, pas des chiffres bruts.</p>
-                </div>
-
-                <!-- Budget -->
-                <div class="bg-brand-black text-white p-6 border-hard flex justify-between items-center">
-                    <div>
-                        <p class="text-brand-gold font-mono text-xs mb-2">BUDGET SECTION 02</p>
-                        <p class="text-white/70 text-sm">Dashboard + Chatbot IA + integrations Analytics/Stripe/Search Console</p>
-                    </div>
-                    <p class="font-display font-black text-3xl">2 400 <span class="text-lg text-white/60">EUR</span></p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 03 : SEO & GEO -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">Blog SEO & GEO</h2>
-                <span class="tag tag-blue">SECTION 03</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <p class="text-lg mb-8 max-w-3xl">Aujourd'hui, vos pages ne sont pas bien indexees sur Google. Et demain, vos clients chercheront aussi sur ChatGPT et Perplexity. On attaque les deux fronts.</p>
-
-                <!-- Deux strategies -->
-                <div class="grid md:grid-cols-2 gap-6 mb-10">
-
-                    <!-- SEO -->
-                    <div class="border-2 border-brand-green p-6 bg-brand-green/10">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-brand-green flex items-center justify-center">
-                                <span class="text-white font-display font-black text-xl">SEO</span>
-                            </div>
-                            <div>
-                                <h4 class="font-display font-bold text-lg">Google Search</h4>
-                                <p class="text-xs text-brand-black/60">Recherche classique</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-4">Les gens tapent "velo electrique 45 km/h" ou "DAHU vs LMX" sur Google. On veut que Mobil-e-T apparaisse en premier.</p>
-                        <div class="bg-white p-4 border-hard">
-                            <p class="font-mono text-xs text-brand-black/60 mb-2">METHODE</p>
-                            <ul class="check-list text-sm">
-                                <li><strong>SerpAPI</strong> pour analyser les mots-cles que les gens cherchent vraiment</li>
-                                <li>On identifie les requetes a fort potentiel et faible concurrence</li>
-                                <li>Articles optimises avec maillage interne vers vos pages produits</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- GEO -->
-                    <div class="border-2 border-brand-blue p-6 bg-brand-blue/10">
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-brand-blue flex items-center justify-center">
-                                <span class="text-white font-display font-black text-xl">GEO</span>
-                            </div>
-                            <div>
-                                <h4 class="font-display font-bold text-lg">ChatGPT & Perplexity</h4>
-                                <p class="text-xs text-brand-black/60">Recherche IA</p>
-                            </div>
-                        </div>
-                        <p class="text-sm mb-4">De plus en plus de gens posent leurs questions a ChatGPT. Quand ils demandent "quel velo electrique puissant acheter ?", on veut que l'IA parle de DAHU.</p>
-                        <div class="bg-white p-4 border-hard">
-                            <p class="font-mono text-xs text-brand-black/60 mb-2">METHODE</p>
-                            <ul class="check-list text-sm">
-                                <li><strong>Simulation de requetes</strong> sur ChatGPT, Claude, Perplexity</li>
-                                <li>On identifie les questions longue traine ou Mobil-e-T peut etre cite</li>
-                                <li>Contenus structures pour etre "compris" par les LLMs</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Exemple concret -->
-                <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// EXEMPLE CONCRET DE LA STRATEGIE GEO</h4>
-                <div class="bg-brand-gray p-6 border-hard mb-10">
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div>
-                            <p class="font-mono text-xs text-brand-black/60 mb-2">ETAPE 1 : SIMULATION</p>
-                            <div class="bg-white p-4 border-hard text-sm">
-                                <p class="italic mb-2">"Quel est le meilleur velo electrique pour aller vite en ville ?"</p>
-                                <p class="text-xs text-brand-black/60">On pose cette question a ChatGPT et on regarde ce qu'il repond aujourd'hui.</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-mono text-xs text-brand-black/60 mb-2">ETAPE 2 : ANALYSE</p>
-                            <div class="bg-white p-4 border-hard text-sm">
-                                <p class="mb-2">ChatGPT cite VanMoof, Cowboy, mais pas DAHU.</p>
-                                <p class="text-xs text-brand-black/60">On identifie pourquoi : manque de contenu structure sur la vitesse et l'usage urbain.</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-mono text-xs text-brand-black/60 mb-2">ETAPE 3 : CONTENU</p>
-                            <div class="bg-white p-4 border-hard text-sm">
-                                <p class="mb-2">On cree un article "DAHU : le velo electrique 45 km/h legal en ville"</p>
-                                <p class="text-xs text-brand-black/60">Structure pour que ChatGPT le comprenne et le cite dans ses reponses.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Volume -->
-                <div class="grid md:grid-cols-2 gap-6 mb-10">
-                    <div class="border-hard p-6 text-center">
-                        <p class="font-display font-black text-5xl text-brand-gold mb-2">30</p>
-                        <p class="font-bold">articles / semaine</p>
-                        <p class="text-xs text-brand-black/60 mt-2">Production automatisee a partir de votre expertise produit</p>
-                    </div>
-                    <div class="border-hard p-6">
-                        <p class="font-mono text-xs text-brand-black/60 mb-3">TYPES DE CONTENUS</p>
-                        <ul class="check-list text-sm">
-                            <li>Comparatifs (DAHU vs LMX, DAHU vs VanMoof)</li>
-                            <li>Guides pratiques (entretien, reglementation)</li>
-                            <li>Questions frequentes (autonomie, vitesse, garantie)</li>
-                            <li>Cas d'usage (camping-car, trajets urbains, DH)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-brand-gold/20 border-2 border-brand-gold p-6 mb-10">
-                    <p class="font-bold mb-2">Point important sur Google</p>
-                    <p class="text-sm">Google n'indexe pas immediatement tous les articles. Au debut, il en prendra 7-8 sur 30. Mais au fur et a mesure que votre site gagne en autorite, ce taux augmente. C'est une strategie progressive mais tres puissante sur le long terme.</p>
-                </div>
-
-                <!-- Budget -->
-                <div class="bg-brand-black text-white p-6 border-hard flex justify-between items-center">
-                    <div>
-                        <p class="text-brand-gold font-mono text-xs mb-2">BUDGET SECTION 03</p>
-                        <p class="text-white/70 text-sm">Strategie SEO + GEO + automatisation articles + maillage interne</p>
-                    </div>
-                    <p class="font-display font-black text-3xl">2 800 <span class="text-lg text-white/60">EUR</span></p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SECTION 04 : LINKEDIN -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">LinkedIn Automatise</h2>
-                <span class="tag tag-green">SECTION 04</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <!-- Honnetete sur FB/Insta -->
-                <div class="bg-brand-red/10 border-2 border-brand-red p-6 mb-10">
-                    <h4 class="font-display font-bold text-lg mb-4 text-brand-red">Pourquoi uniquement LinkedIn</h4>
-                    <p class="text-sm mb-4">Je prefere etre honnete avec vous : automatiser Facebook et Instagram pour un produit premium comme le DAHU est risque.</p>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <p class="font-mono text-xs text-brand-red mb-2">LES RISQUES SUR FB/INSTA</p>
-                            <ul class="text-sm space-y-2">
-                                <li class="flex gap-2"><span class="text-brand-red">✗</span> Contenu automatise = percu comme generique</li>
-                                <li class="flex gap-2"><span class="text-brand-red">✗</span> Visuels IA = detectables, cassent la credibilite</li>
-                                <li class="flex gap-2"><span class="text-brand-red">✗</span> Image premium incompatible avec l'automatisation visible</li>
-                                <li class="flex gap-2"><span class="text-brand-red">✗</span> Vos videos personnelles marchent mieux que tout le reste</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-mono text-xs text-brand-green mb-2">POURQUOI LINKEDIN FONCTIONNE</p>
-                            <ul class="text-sm space-y-2">
-                                <li class="flex gap-2"><span class="text-brand-green">✓</span> Audience B2B et professionnelle</li>
-                                <li class="flex gap-2"><span class="text-brand-green">✓</span> Contenu texte valorise (pas besoin de visuels IA)</li>
-                                <li class="flex gap-2"><span class="text-brand-green">✓</span> Coherent avec votre positionnement premium</li>
-                                <li class="flex gap-2"><span class="text-brand-green">✓</span> Touche les decideurs, pas les curieux</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h4 class="font-mono text-brand-gold text-xs mb-6 tracking-wider">// CE QU'ON MET EN PLACE</h4>
-                <div class="grid md:grid-cols-3 gap-6 mb-10">
-                    <div class="border-hard p-6 text-center">
-                        <p class="font-display font-black text-4xl text-brand-gold mb-2">3-4</p>
-                        <p class="font-bold">posts / semaine</p>
-                        <p class="text-xs text-brand-black/60 mt-2">Frequence optimale pour LinkedIn</p>
-                    </div>
-                    <div class="border-hard p-6">
-                        <p class="font-mono text-xs text-brand-black/60 mb-3">TYPES DE POSTS</p>
-                        <ul class="check-list text-sm">
-                            <li>Retours d'experience clients</li>
-                            <li>Actualites du secteur</li>
-                            <li>Coulisses (salons, essais)</li>
-                            <li>Conseils techniques</li>
-                        </ul>
-                    </div>
-                    <div class="border-hard p-6">
-                        <p class="font-mono text-xs text-brand-black/60 mb-3">AUTOMATISATION</p>
-                        <ul class="check-list text-sm">
-                            <li>Generation des textes</li>
-                            <li>Programmation automatique</li>
-                            <li>Hashtags optimises</li>
-                            <li>Horaires de publication optimaux</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-brand-gray p-6 border-hard mb-10">
-                    <p class="font-bold mb-2">Votre role</p>
-                    <p class="text-sm">Vous continuez a poster vos videos personnelles quand vous en avez envie. Le systeme assure la presence reguliere entre vos posts. Les deux se completent.</p>
-                </div>
-
-                <!-- Budget -->
-                <div class="bg-brand-black text-white p-6 border-hard flex justify-between items-center">
-                    <div>
-                        <p class="text-brand-gold font-mono text-xs mb-2">BUDGET SECTION 04</p>
-                        <p class="text-white/70 text-sm">Automatisation LinkedIn + programmation + generation contenu</p>
-                    </div>
-                    <p class="font-display font-black text-3xl">1 300 <span class="text-lg text-white/60">EUR</span></p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- COUTS DE FONCTIONNEMENT -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">Couts de fonctionnement</h2>
-                <span class="tag tag-gold">MENSUEL</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <p class="text-lg mb-8 max-w-3xl">Une fois le systeme en place, voici ce que ca coute de le faire tourner. Pas de surprise, pas d'abonnement cache.</p>
-
-                <div class="overflow-x-auto mb-10">
-                    <table class="w-full border-hard text-sm">
-                        <thead>
-                            <tr class="bg-brand-black text-white">
-                                <th class="p-4 text-left font-mono">POSTE</th>
-                                <th class="p-4 text-left font-mono">DETAIL</th>
-                                <th class="p-4 text-right font-mono">COUT / MOIS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-t-2 border-brand-black">
-                                <td class="p-4 font-medium">VPS (n8n auto-heberge)</td>
-                                <td class="p-4 text-brand-black/70">2 vCPU, 4 Go RAM - OVH/Hetzner</td>
-                                <td class="p-4 text-right font-mono">8 - 15 EUR</td>
-                            </tr>
-                            <tr class="border-t-2 border-brand-black">
-                                <td class="p-4 font-medium">IA - SAV & Memoire</td>
-                                <td class="p-4 text-brand-black/70">Analyse emails, reponses, traduction</td>
-                                <td class="p-4 text-right font-mono">5 - 15 EUR</td>
-                            </tr>
-                            <tr class="border-t-2 border-brand-black">
-                                <td class="p-4 font-medium">IA - SEO & GEO</td>
-                                <td class="p-4 text-brand-black/70">Generation 30 articles/semaine</td>
-                                <td class="p-4 text-right font-mono">10 - 25 EUR</td>
-                            </tr>
-                            <tr class="border-t-2 border-brand-black">
-                                <td class="p-4 font-medium">IA - LinkedIn</td>
-                                <td class="p-4 text-brand-black/70">Generation posts</td>
-                                <td class="p-4 text-right font-mono">3 - 8 EUR</td>
-                            </tr>
-                            <tr class="border-t-2 border-brand-black">
-                                <td class="p-4 font-medium">SerpAPI</td>
-                                <td class="p-4 text-brand-black/70">Analyse mots-cles SEO (gratuit)</td>
-                                <td class="p-4 text-right font-mono">0 EUR</td>
-                            </tr>
-                            <tr class="border-t-2 border-brand-black bg-brand-gold/20">
-                                <td class="p-4 font-bold" colspan="2">TOTAL MENSUEL</td>
-                                <td class="p-4 text-right font-display font-black text-xl">50 - 75 EUR</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="border-hard p-4 text-center">
-                        <p class="text-2xl mb-2">✓</p>
-                        <p class="font-bold text-sm">Aucun abonnement cache</p>
-                        <p class="text-xs text-brand-black/60">Vous payez l'usage reel</p>
-                    </div>
-                    <div class="border-hard p-4 text-center">
-                        <p class="text-2xl mb-2">✓</p>
-                        <p class="font-bold text-sm">Couts ajustables</p>
-                        <p class="text-xs text-brand-black/60">Moins d'activite = moins de couts</p>
-                    </div>
-                    <div class="border-hard p-4 text-center">
-                        <p class="text-2xl mb-2">✓</p>
-                        <p class="font-bold text-sm">Pas de dependance</p>
-                        <p class="text-xs text-brand-black/60">Le systeme vous appartient</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- RECAPITULATIF -->
-        <section class="brut-box p-0">
-            <div class="section-header p-4 md:p-6 flex justify-between items-center">
-                <h2 class="font-display font-bold text-xl md:text-2xl">Recapitulatif</h2>
-                <span class="tag tag-gold">INVESTISSEMENT</span>
-            </div>
-            <div class="p-6 md:p-10">
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-                    <div class="border-hard p-6 text-center">
-                        <span class="tag tag-red mb-3">SECTION 01</span>
-                        <p class="font-bold mt-2">SAV & Memoire IA</p>
-                        <p class="font-display font-black text-2xl mt-2">3 600 EUR</p>
-                    </div>
-                    <div class="border-hard p-6 text-center">
-                        <span class="tag tag-gold mb-3">SECTION 02</span>
-                        <p class="font-bold mt-2">Dashboard & Chatbot</p>
-                        <p class="font-display font-black text-2xl mt-2">2 400 EUR</p>
-                    </div>
-                    <div class="border-hard p-6 text-center">
-                        <span class="tag tag-blue mb-3">SECTION 03</span>
-                        <p class="font-bold mt-2">Blog SEO & GEO</p>
-                        <p class="font-display font-black text-2xl mt-2">2 800 EUR</p>
-                    </div>
-                    <div class="border-hard p-6 text-center">
-                        <span class="tag tag-green mb-3">SECTION 04</span>
-                        <p class="font-bold mt-2">LinkedIn</p>
-                        <p class="font-display font-black text-2xl mt-2">1 300 EUR</p>
-                    </div>
-                </div>
-
-                <div class="bg-brand-black text-white p-8 md:p-12 border-hard text-center mb-10">
-                    <p class="text-brand-gold font-mono text-xs mb-4 tracking-wider">// INVESTISSEMENT TOTAL</p>
-                    <h2 class="font-display font-black text-6xl md:text-8xl mb-4">10 100 <span class="text-3xl text-white/60">EUR</span></h2>
-                    <p class="text-white/70 text-lg mb-6">Livraison complete en 3 mois - Formation incluse</p>
-                    <div class="bg-brand-gold text-brand-black p-6 max-w-2xl mx-auto">
-                        <p class="font-display font-bold text-lg mb-2">Paiement en 4 fois sans frais</p>
-                        <p class="text-sm">2 525 EUR a la signature, puis 2 525 EUR a chaque livraison de phase</p>
-                    </div>
-                </div>
-
-                <!-- Ce qui est inclus -->
-                <div class="border-hard p-6">
-                    <h4 class="font-mono text-brand-gold text-xs mb-4 tracking-wider">// INCLUS DANS LA PROPOSITION</h4>
-                    <ul class="check-list text-sm">
-                        <li>Installation et configuration complete</li>
-                        <li>Integration avec vos outils existants</li>
-                        <li>Formation gratuite sur le systeme</li>
-                        <li>Documentation technique</li>
-                        <li>Support pendant 1 mois apres livraison</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- PROCHAINES ETAPES -->
-        <section class="brut-box p-0 bg-brand-black text-white">
-            <div class="p-6 md:p-10">
-                <h2 class="font-display font-bold text-2xl md:text-3xl mb-8 border-b border-white/20 pb-4">Prochaines etapes</h2>
-
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="text-center">
-                        <div class="bg-brand-gold text-brand-black w-16 h-16 flex items-center justify-center font-display font-black text-3xl mx-auto mb-4">1</div>
-                        <p class="font-bold mb-2">Vous relisez</p>
-                        <p class="text-white/70 text-sm">Prenez le temps de tout parcourir. Notez vos questions.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-brand-gold text-brand-black w-16 h-16 flex items-center justify-center font-display font-black text-3xl mx-auto mb-4">2</div>
-                        <p class="font-bold mb-2">On en reparle</p>
-                        <p class="text-white/70 text-sm">Un appel debut de semaine prochaine pour valider ou ajuster.</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-brand-gold text-brand-black w-16 h-16 flex items-center justify-center font-display font-black text-3xl mx-auto mb-4">3</div>
-                        <p class="font-bold mb-2">On demarre</p>
-                        <p class="text-white/70 text-sm">Signature et lancement le 10 fevrier.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-brand-black text-white py-16 px-4 md:px-8 border-t-4 border-brand-gold">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="mb-10 font-sans text-lg leading-relaxed">
-                <p class="mb-6 text-white/70">Cette proposition est faite pour vous faire gagner du temps, pas pour vous en ajouter. Tout tourne en automatique. Vous gardez le controle, le systeme fait le travail.</p>
-                <p class="italic text-white/50">A tres vite Thierry.</p>
-            </div>
-
-            <a href="https://wa.me/33626105640?text=Bonjour%20Baptiste%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20proposition%20MOBIL-E-T" target="_blank"
-                class="inline-block font-display font-bold text-2xl md:text-3xl bg-brand-gold text-brand-black px-10 py-5 border-2 border-brand-gold hover:bg-transparent hover:text-brand-gold transition-all">
-                ME RECONTACTER
-            </a>
-
-            <div class="mt-12 pt-8 border-t border-white/20 text-white/40 text-sm">
-                <p>Proposition MOBIL-E-T - Janvier 2026</p>
-                <p class="mt-2">Baptiste Fort - Automatisation & IA</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), direction: 'vertical', smooth: true });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.brut-box').forEach((box, i) => {
-            gsap.from(box, { scrollTrigger: { trigger: box, start: 'top 85%', toggleActions: 'play none none reverse' }, y: 40, opacity: 0, duration: 0.8, ease: 'power2.out' });
-        });
-    </script>
-
+<body class="bg-neo-white text-neo-black">
+
+<!-- FLOATING CONTACTS -->
+<div class="fixed right-5 bottom-5 z-[100] flex flex-col gap-3">
+<a href="https://wa.me/33626105640" target="_blank" class="wa-float w-14 h-14 rounded-full neo-border flex items-center justify-center shadow-lg"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="li-float w-14 h-14 rounded-full neo-border flex items-center justify-center shadow-lg"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 bg-neo-white/95 backdrop-blur-md transition-all duration-300" style="border-bottom:3px solid #0a0a0a">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-2"><span class="font-grotesk font-black text-lg">BAPTISTE</span><span class="text-neo-blue font-grotesk font-black text-lg">/</span><span class="font-grotesk font-black text-lg">FORT</span></div>
+<div class="hidden lg:flex items-center gap-1 bg-neo-gray neo-border-2 p-1">
+<button onclick="switchTab('main')" data-tab="main" class="tab-btn active px-5 py-2 text-sm font-bold font-space">Presentation</button>
+<button onclick="switchTab('detail')" data-tab="detail" class="tab-btn px-5 py-2 text-sm font-bold font-space">Detail du Projet</button>
+<button onclick="switchTab('devis')" data-tab="devis" class="tab-btn px-5 py-2 text-sm font-bold font-space">Devis</button>
+</div>
+<div class="flex items-center gap-3">
+<a href="https://wa.me/33626105640" target="_blank" class="hidden sm:flex neo-btn bg-[#25D366] text-white px-4 py-1.5 text-xs items-center gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>06 26 10 56 40</a>
+<button id="mob-btn" class="lg:hidden neo-btn bg-neo-yellow px-3 py-1.5 text-xs">MENU</button>
+</div></div></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu" class="mob-menu fixed top-0 right-0 bottom-0 w-80 bg-neo-white z-50 p-8 flex flex-col gap-4" style="border-left:3px solid #0a0a0a">
+<button id="mob-close" class="self-end neo-btn bg-neo-red text-white px-3 py-1 text-xs mb-6">FERMER</button>
+<button onclick="switchTab('main');closeMob()" class="text-left text-lg font-bold py-3 border-b-2 border-neo-black">Presentation</button>
+<button onclick="switchTab('detail');closeMob()" class="text-left text-lg font-bold py-3 border-b-2 border-neo-black">Detail du Projet</button>
+<button onclick="switchTab('devis');closeMob()" class="text-left text-lg font-bold py-3 border-b-2 border-neo-black">Devis</button>
+<div class="mt-auto flex gap-3"><a href="https://wa.me/33626105640" target="_blank" class="neo-btn bg-[#25D366] text-white px-5 py-2 text-sm">WhatsApp</a><a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="neo-btn bg-[#0A66C2] text-white px-5 py-2 text-sm">LinkedIn</a></div>
+</div><div id="mob-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+<!-- TICKER -->
+<div class="fixed top-16 left-0 right-0 z-40 bg-neo-black text-white py-2 ticker-wrap" style="border-bottom:3px solid #0a0a0a">
+<div class="ticker marquee"><span class="mx-8 text-xs font-space">MOBIL-E-T</span><span class="mx-8 text-xs font-space text-neo-yellow">&#9733; AUTOMATISATION</span><span class="mx-8 text-xs font-space">N8N</span><span class="mx-8 text-xs font-space text-neo-green">CHATBOT IA</span><span class="mx-8 text-xs font-space">SEO</span><span class="mx-8 text-xs font-space text-neo-cyan">GEO</span><span class="mx-8 text-xs font-space text-neo-pink">LINKEDIN</span><span class="mx-8 text-xs font-space">DASHBOARD</span><span class="mx-8 text-xs font-space text-neo-orange">DAHU &amp; VENOM</span><span class="mx-8 text-xs font-space">MOBIL-E-T</span><span class="mx-8 text-xs font-space text-neo-yellow">&#9733; AUTOMATISATION</span><span class="mx-8 text-xs font-space">N8N</span><span class="mx-8 text-xs font-space text-neo-green">CHATBOT IA</span><span class="mx-8 text-xs font-space">SEO</span><span class="mx-8 text-xs font-space text-neo-cyan">GEO</span><span class="mx-8 text-xs font-space text-neo-pink">LINKEDIN</span><span class="mx-8 text-xs font-space">DASHBOARD</span><span class="mx-8 text-xs font-space text-neo-orange">DAHU &amp; VENOM</span></div>
+</div>
+
+<!-- ================================================================ -->
+<!-- TAB 1 — PRESENTATION (10 sections) -->
+<!-- ================================================================ -->
+<div id="tab-main" class="tab-panel active">
+
+<!-- S1: HERO -->
+<section class="min-h-screen flex items-center justify-center pt-32 pb-20 px-4 relative overflow-hidden">
+<div class="absolute inset-0 stripe-bg opacity-30"></div>
+<div class="absolute top-32 left-10 w-32 h-32 bg-neo-blue/10 rotate-12 neo-border-2"></div>
+<div class="absolute bottom-20 right-10 w-48 h-48 bg-neo-orange/10 -rotate-6 neo-border-2"></div>
+<div class="absolute top-1/2 left-1/3 w-20 h-20 bg-neo-yellow/20 rotate-45 neo-border-2 float"></div>
+<div class="max-w-5xl mx-auto text-center relative z-10">
+<div class="anim fu"><div class="sec-label text-neo-blue mb-4">NOUVELLE PROPOSITION</div>
+<h1 class="font-grotesk text-5xl sm:text-7xl lg:text-[6rem] font-bold leading-[1.05] mb-6">Mobil-e-t<br><span class="gradient-text">Automatisation</span></h1></div>
+<div class="anim fu d2"><p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">Bonjour Thierry, suite a notre appel. J'ai pris le temps de revoir l'ensemble du projet. Voici une proposition ajustee, plus precise, avec un <strong>planning concret</strong> pour que vous puissiez vous projeter.</p></div>
+<div class="anim fu d3"><p class="text-base text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">L'objectif reste le meme : <strong>vous faire gagner du temps</strong>. Tout ce qui est presente ici tourne en automatique. Vous n'avez rien a saisir, rien a remplir. Le systeme travaille pour vous pendant que vous vous concentrez sur ce qui compte vraiment : vos clients et vos ventes.</p></div>
+<div class="anim fu d4 flex flex-wrap justify-center gap-3 mb-10">
+<div class="neo-card bg-neo-orange text-white px-4 py-2 font-bold font-space text-xs">MOBIL-E-T</div>
+<div class="neo-card bg-neo-green px-4 py-2 font-bold font-space text-xs">10 FEV — 5 MAI 2026</div>
+<div class="neo-card bg-neo-blue text-white px-4 py-2 font-bold font-space text-xs">PAR BAPTISTE FORT</div></div>
+<div class="anim fu d5 flex flex-wrap justify-center gap-4">
+<button onclick="switchTab('detail')" class="neo-btn bg-neo-black text-white px-8 py-4 text-base font-grotesk">Voir le detail &darr;</button>
+<button onclick="switchTab('devis')" class="neo-btn bg-white px-8 py-4 text-base font-grotesk">Voir le devis &euro;</button></div>
+</div></section>
+
+<!-- S2: LE CONTEXTE -->
+<section class="py-20 px-4 bg-neo-gray" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-orange mb-4">01 — Le contexte</div>
+<h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Mobil-e-t.</h2>
+<p class="text-lg text-gray-500 mb-12 max-w-2xl">Distribution de motos et velos electriques premium DAHU &amp; VENOM. Un marche en pleine croissance qui necessite une presence digitale forte et un SAV impeccable.</p></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fu d1 neo-card p-8"><div class="text-3xl mb-4 egg">&#9889;</div><h3 class="font-grotesk font-bold text-lg mb-3">SAV intelligent</h3><p class="text-gray-600 text-sm leading-relaxed">Aujourd'hui le SAV passe par le site, la boite mail, les echanges avec l'Italie. A chaque demande, il faut retrouver l'historique, les specs, les cas similaires. On automatise tout ca.</p></div>
+<div class="anim fu d2 neo-card p-8"><div class="text-3xl mb-4 egg">&#128200;</div><h3 class="font-grotesk font-bold text-lg mb-3">Visibilite digitale</h3><p class="text-gray-600 text-sm leading-relaxed">Vos pages ne sont pas bien indexees sur Google. Et demain, vos clients chercheront aussi sur ChatGPT et Perplexity. On attaque les deux fronts avec du contenu automatise.</p></div>
+<div class="anim fu d3 neo-card p-8"><div class="text-3xl mb-4 egg">&#129504;</div><h3 class="font-grotesk font-bold text-lg mb-3">Automatisation totale</h3><p class="text-gray-600 text-sm leading-relaxed">Tout tourne avec n8n auto-heberge. SAV, articles SEO, posts LinkedIn, dashboard — le systeme travaille 24/7 sans intervention humaine. Vous gardez le controle.</p></div>
+</div></div></section>
+
+<!-- S3: LES 4 PHASES -->
+<section class="py-20 px-4" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-green mb-4">02 — Les 4 phases</div>
+<h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Ce qu'on va construire.</h2>
+<p class="text-lg text-gray-500 mb-12 max-w-2xl">4 briques independantes. Vous voyez les resultats au fur et a mesure, pas a la fin.</p></div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="anim pop d1 neo-card bg-neo-blue text-white p-6 text-center" style="box-shadow:6px 6px 0 #ffd166"><div class="font-space font-bold text-lg mb-2">PHASE 1</div><div class="text-2xl mb-2">&#129504;</div><h3 class="font-bold text-sm">SAV &amp; Memoire IA</h3><p class="text-blue-200 text-xs mt-2">10 fev → 10 mars</p><p class="text-blue-200 text-xs">1 mois</p></div>
+<div class="anim pop d2 neo-card bg-neo-purple text-white p-6 text-center" style="box-shadow:6px 6px 0 #06d6a0"><div class="font-space font-bold text-lg mb-2">PHASE 2</div><div class="text-2xl mb-2">&#128200;</div><h3 class="font-bold text-sm">Dashboard &amp; Chatbot</h3><p class="text-purple-200 text-xs mt-2">10 mars → 10 avril</p><p class="text-purple-200 text-xs">1 mois</p></div>
+<div class="anim pop d3 neo-card bg-neo-orange text-white p-6 text-center" style="box-shadow:6px 6px 0 #4361ee"><div class="font-space font-bold text-lg mb-2">PHASE 3</div><div class="text-2xl mb-2">&#128269;</div><h3 class="font-bold text-sm">Blog SEO &amp; GEO</h3><p class="text-orange-200 text-xs mt-2">10 avril → 24 avril</p><p class="text-orange-200 text-xs">2 semaines</p></div>
+<div class="anim pop d4 neo-card bg-neo-green text-white p-6 text-center" style="box-shadow:6px 6px 0 #f72585"><div class="font-space font-bold text-lg mb-2">PHASE 4</div><div class="text-2xl mb-2">&#128225;</div><h3 class="font-bold text-sm">LinkedIn Automatise</h3><p class="text-green-200 text-xs mt-2">24 avril → 5 mai</p><p class="text-green-200 text-xs">1.5 semaines</p></div>
+</div>
+</div></section>
+
+<!-- S4: PHASE 1 RESUME — SAV -->
+<section class="py-20 px-4 bg-neo-blue text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-yellow mb-4">03 — Phase 1</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">SAV &amp; Memoire IA.</h2><p class="text-lg text-blue-200 mb-12 max-w-3xl">Le coeur du systeme. Une fois en place, l'IA connait vos produits, vos clients, vos pannes. Elle vous assiste sur chaque demande SAV sans que vous ayez a chercher l'info.</p></div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="anim pop d1 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128231;</div><h3 class="font-bold mb-2">Detection emails</h3><p class="text-blue-200 text-sm">Le systeme detecte automatiquement chaque email SAV entrant et l'analyse.</p></div>
+<div class="anim pop d2 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#129504;</div><h3 class="font-bold mb-2">Analyse IA</h3><p class="text-blue-200 text-sm">Identifie le client, le produit, le probleme. Recupere l'historique et les cas similaires.</p></div>
+<div class="anim pop d3 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128203;</div><h3 class="font-bold mb-2">Memoire produits</h3><p class="text-blue-200 text-sm">DAHU, VENOM, toutes versions. Fiches techniques, numeros de chassis, garanties.</p></div>
+<div class="anim pop d4 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#127470;&#127481;</div><h3 class="font-bold mb-2">Echanges Italie</h3><p class="text-blue-200 text-sm">Dossiers de garantie prepares et traduits automatiquement pour le fabricant.</p></div>
+<div class="anim pop d5 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128276;</div><h3 class="font-bold mb-2">Reponses preparees</h3><p class="text-blue-200 text-sm">L'IA prepare la reponse. Vous validez ou ajustez. Pas de saisie manuelle.</p></div>
+<div class="anim pop d6 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128190;</div><h3 class="font-bold mb-2">Historique complet</h3><p class="text-blue-200 text-sm">Chaque echange est stocke et enrichit la base. Le systeme apprend en continu.</p></div>
+</div>
+<div class="anim fu d4 mt-10 text-center"><div class="inline-block neo-card bg-white text-neo-dark px-8 py-4 font-grotesk font-bold text-lg">3 600 &euro;</div></div>
+</div></section>
+
+<!-- S5: PHASE 2 RESUME — DASHBOARD -->
+<section class="py-20 px-4 bg-neo-purple text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-green mb-4">04 — Phase 2</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Dashboard &amp; Chatbot IA.</h2><p class="text-lg text-purple-200 mb-12 max-w-3xl">Un seul endroit pour tout voir. Plus besoin d'ouvrir Google Analytics, puis Stripe, puis vos emails. Tout est la, et vous posez des questions en langage naturel.</p></div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="anim pop d1 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128200;</div><h3 class="font-bold mb-2">Google Analytics</h3><p class="text-purple-200 text-sm">Visiteurs, pages vues, sources de trafic, taux de rebond — tout en temps reel.</p></div>
+<div class="anim pop d2 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128179;</div><h3 class="font-bold mb-2">Stripe</h3><p class="text-purple-200 text-sm">Chiffre d'affaires, nombre de ventes, panier moyen, paiements echoues — alerte auto.</p></div>
+<div class="anim pop d3 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128269;</div><h3 class="font-bold mb-2">Search Console</h3><p class="text-purple-200 text-sm">Impressions Google, clics, position moyenne, mots-cles — suivi automatique.</p></div>
+<div class="anim pop d4 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#129302;</div><h3 class="font-bold mb-2">Chatbot IA</h3><p class="text-purple-200 text-sm">"Combien de visiteurs ce mois-ci ?" — le chatbot repond avec vos chiffres reels.</p></div>
+<div class="anim pop d5 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128202;</div><h3 class="font-bold mb-2">KPIs unifies</h3><p class="text-purple-200 text-sm">Plus besoin de jongler entre 5 outils. Un seul tableau de bord avec toutes vos donnees.</p></div>
+<div class="anim pop d6 neo-card bg-white/10 p-6 text-white" style="box-shadow:6px 6px 0 rgba(255,255,255,.2)"><div class="text-2xl mb-3">&#128276;</div><h3 class="font-bold mb-2">Alertes intelligentes</h3><p class="text-purple-200 text-sm">Paiement echoue, chute de trafic, mot-cle qui decolle — vous etes prevenu automatiquement.</p></div>
+</div>
+<div class="anim fu d4 mt-10 text-center"><div class="inline-block neo-card bg-white text-neo-dark px-8 py-4 font-grotesk font-bold text-lg">2 400 &euro;</div></div>
+</div></section>
+
+<!-- S6: PHASE 3 RESUME — SEO & GEO -->
+<section class="py-20 px-4 bg-neo-orange text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-yellow mb-4">05 — Phase 3</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">Blog SEO &amp; GEO.</h2><p class="text-lg text-orange-200 mb-12 max-w-3xl">Articles automatises pour Google ET pour ChatGPT/Perplexity. Le systeme identifie les bons mots-cles et publie du contenu qui vous rend visible la ou vos clients cherchent.</p></div>
+<div class="grid sm:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card bg-white text-neo-dark p-8">
+<h3 class="font-grotesk font-bold text-xl mb-4">SEO — Google Search</h3>
+<p class="text-sm text-gray-600 mb-4">Les gens tapent "velo electrique 45 km/h" ou "DAHU vs LMX" sur Google. On veut que Mobil-e-t apparaisse en premier.</p>
+<ul class="space-y-2 text-sm text-gray-600"><li>&#8226; SerpAPI pour analyser les mots-cles reels</li><li>&#8226; Requetes a fort potentiel, faible concurrence</li><li>&#8226; Articles optimises avec maillage interne</li><li>&#8226; 30 articles/semaine automatises</li></ul>
+</div>
+<div class="anim fr d2 neo-card bg-white text-neo-dark p-8">
+<h3 class="font-grotesk font-bold text-xl mb-4">GEO — ChatGPT &amp; Perplexity</h3>
+<p class="text-sm text-gray-600 mb-4">De plus en plus de gens posent leurs questions a ChatGPT. Quand ils demandent "quel velo electrique puissant acheter ?", on veut que l'IA parle de DAHU.</p>
+<ul class="space-y-2 text-sm text-gray-600"><li>&#8226; Simulation de requetes sur ChatGPT, Claude, Perplexity</li><li>&#8226; Questions longue traine ou Mobil-e-t peut etre cite</li><li>&#8226; Contenus structures pour les LLMs</li><li>&#8226; Strategie progressive et puissante</li></ul>
+</div>
+</div>
+<div class="anim fu d3 mt-10 text-center"><div class="inline-block neo-card bg-white text-neo-dark px-8 py-4 font-grotesk font-bold text-lg">2 800 &euro;</div></div>
+</div></section>
+
+<!-- S7: PHASE 4 RESUME — LINKEDIN -->
+<section class="py-20 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-cyan mb-4">06 — Phase 4</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-4">LinkedIn Automatise.</h2><p class="text-lg text-gray-400 mb-12 max-w-3xl">Presence reguliere sur LinkedIn avec du contenu coherent. Le systeme publie pour vous, vous restez visible sans y passer du temps. 3-4 posts par semaine.</p></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card bg-red-50 p-8 text-neo-dark">
+<h3 class="font-grotesk font-bold text-lg mb-4 text-red-500">Pourquoi PAS Facebook/Instagram</h3>
+<ul class="space-y-2 text-sm text-gray-600"><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Contenu automatise = percu comme generique</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Visuels IA = detectables, cassent la credibilite</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Image premium incompatible avec l'automatisation visible</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Vos videos personnelles marchent mieux que tout le reste</li></ul>
+</div>
+<div class="anim fr d2 neo-card bg-green-50 p-8 text-neo-dark">
+<h3 class="font-grotesk font-bold text-lg mb-4 text-neo-green">Pourquoi LinkedIn fonctionne</h3>
+<ul class="space-y-2 text-sm text-gray-600"><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Audience B2B et professionnelle</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Contenu texte valorise (pas besoin de visuels IA)</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Coherent avec votre positionnement premium</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Touche les decideurs, pas les curieux</li></ul>
+</div>
+</div>
+<div class="anim fu d3 mt-10 text-center"><div class="inline-block neo-card bg-white text-neo-dark px-8 py-4 font-grotesk font-bold text-lg">1 300 &euro;</div></div>
+</div></section>
+
+<!-- S8: PLANNING TIMELINE -->
+<section class="py-20 px-4 bg-neo-gray" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-blue mb-4">07 — Planning</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Le calendrier.</h2></div>
+<div class="anim fu d1 neo-card bg-white p-8"><div class="space-y-6">
+<div class="flex gap-4"><div class="w-24 flex-shrink-0 text-right"><div class="font-space font-bold text-xs">10 FEV</div></div><div class="w-4 flex flex-col items-center flex-shrink-0"><div class="w-4 h-4 bg-neo-blue neo-border-2 rounded-full"></div><div class="w-0.5 flex-grow bg-neo-black"></div></div><div class="flex-grow pb-4"><div class="inline-block bg-neo-blue text-white px-3 py-1 font-space text-xs font-bold mb-2 neo-border-2">PHASE 1 — SAV &amp; MEMOIRE IA</div><p class="text-sm text-gray-600">Memoire IA, connexion emails, integration site, echanges Italie automatises. <strong>1 mois.</strong></p></div></div>
+<div class="flex gap-4"><div class="w-24 flex-shrink-0 text-right"><div class="font-space font-bold text-xs">10 MARS</div></div><div class="w-4 flex flex-col items-center flex-shrink-0"><div class="w-4 h-4 bg-neo-purple neo-border-2 rounded-full"></div><div class="w-0.5 flex-grow bg-neo-black"></div></div><div class="flex-grow pb-4"><div class="inline-block bg-neo-purple text-white px-3 py-1 font-space text-xs font-bold mb-2 neo-border-2">PHASE 2 — DASHBOARD &amp; CHATBOT</div><p class="text-sm text-gray-600">Integrations Analytics, Stripe, Search Console. Chatbot IA, alertes. <strong>1 mois.</strong></p></div></div>
+<div class="flex gap-4"><div class="w-24 flex-shrink-0 text-right"><div class="font-space font-bold text-xs">10 AVR</div></div><div class="w-4 flex flex-col items-center flex-shrink-0"><div class="w-4 h-4 bg-neo-orange neo-border-2 rounded-full"></div><div class="w-0.5 flex-grow bg-neo-black"></div></div><div class="flex-grow pb-4"><div class="inline-block bg-neo-orange text-white px-3 py-1 font-space text-xs font-bold mb-2 neo-border-2">PHASE 3 — BLOG SEO &amp; GEO</div><p class="text-sm text-gray-600">Strategie mots-cles, automatisation 30 articles/semaine, maillage interne, GEO. <strong>2 semaines.</strong></p></div></div>
+<div class="flex gap-4"><div class="w-24 flex-shrink-0 text-right"><div class="font-space font-bold text-xs">24 AVR</div></div><div class="w-4 flex flex-col items-center flex-shrink-0"><div class="w-4 h-4 bg-neo-green neo-border-2 rounded-full"></div></div><div class="flex-grow"><div class="inline-block bg-neo-green text-white px-3 py-1 font-space text-xs font-bold mb-2 neo-border-2">PHASE 4 — LINKEDIN AUTOMATISE</div><p class="text-sm text-gray-600">Generation contenu, programmation automatique, hashtags. <strong>1.5 semaines. Termine le 5 mai.</strong></p></div></div>
+</div></div></div></section>
+
+<!-- S9: RECAPITULATIF -->
+<section class="py-20 px-4" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu"><div class="sec-label text-neo-purple mb-4">08 — Recapitulatif</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-12">Investissement total.</h2></div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<div class="anim pop d1 neo-card p-6 text-center"><div class="font-mono text-xs text-gray-400 mb-2">PHASE 1</div><div class="font-grotesk font-bold text-sm mb-2">SAV &amp; Memoire IA</div><div class="font-space font-bold text-2xl text-neo-blue">3 600 &euro;</div></div>
+<div class="anim pop d2 neo-card p-6 text-center"><div class="font-mono text-xs text-gray-400 mb-2">PHASE 2</div><div class="font-grotesk font-bold text-sm mb-2">Dashboard &amp; Chatbot</div><div class="font-space font-bold text-2xl text-neo-purple">2 400 &euro;</div></div>
+<div class="anim pop d3 neo-card p-6 text-center"><div class="font-mono text-xs text-gray-400 mb-2">PHASE 3</div><div class="font-grotesk font-bold text-sm mb-2">Blog SEO &amp; GEO</div><div class="font-space font-bold text-2xl text-neo-orange">2 800 &euro;</div></div>
+<div class="anim pop d4 neo-card p-6 text-center"><div class="font-mono text-xs text-gray-400 mb-2">PHASE 4</div><div class="font-grotesk font-bold text-sm mb-2">LinkedIn</div><div class="font-space font-bold text-2xl text-neo-green">1 300 &euro;</div></div>
+</div>
+<div class="anim si d2 neo-card bg-neo-dark text-white p-8 text-center" style="box-shadow:10px 10px 0 #ffd166">
+<div class="font-mono text-sm text-gray-400 mb-2">INVESTISSEMENT TOTAL</div>
+<div class="font-grotesk font-bold text-5xl mb-4">10 100 &euro;</div>
+<p class="text-gray-400 text-sm">Livraison complete en 3 mois — Formation incluse</p>
+<p class="text-neo-yellow text-sm font-bold mt-3">Paiement en 4 fois sans frais : 2 525 &euro; a la signature, puis 2 525 &euro; a chaque livraison de phase</p>
+</div>
+</div></section>
+
+<!-- S10: CTA -->
+<section class="py-20 px-4 bg-neo-black text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-4xl mx-auto text-center">
+<div class="anim fu"><div class="sec-label text-neo-yellow mb-4">09 — Prochaines etapes</div><h2 class="font-grotesk text-4xl sm:text-5xl font-bold mb-6">On demarre ?</h2></div>
+<div class="anim fu d1 grid sm:grid-cols-3 gap-6 mb-12">
+<div class="text-center"><div class="w-16 h-16 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold neo-border text-xl mb-3">1</div><div class="font-bold">Vous relisez</div><div class="text-xs text-gray-400 mt-1">Prenez le temps de tout parcourir. Notez vos questions.</div></div>
+<div class="text-center"><div class="w-16 h-16 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold neo-border text-xl mb-3">2</div><div class="font-bold">On en reparle</div><div class="text-xs text-gray-400 mt-1">Un appel debut de semaine prochaine pour valider ou ajuster.</div></div>
+<div class="text-center"><div class="w-16 h-16 mx-auto bg-neo-yellow text-neo-black flex items-center justify-center font-bold neo-border text-xl mb-3">3</div><div class="font-bold">On demarre</div><div class="text-xs text-gray-400 mt-1">Signature et lancement le 10 fevrier.</div></div></div>
+<div class="anim fu d2 flex flex-wrap justify-center gap-4">
+<a href="https://wa.me/33626105640" target="_blank" class="neo-btn bg-[#25D366] text-white px-8 py-4 text-base flex items-center gap-3"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Discuter sur WhatsApp</a>
+<a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="neo-btn bg-[#0A66C2] text-white px-8 py-4 text-base flex items-center gap-3"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Mon profil LinkedIn</a></div>
+<div class="anim fu d3 mt-10"><p class="text-xl font-grotesk font-bold text-neo-yellow">A tres vite Thierry.</p><p class="text-sm text-gray-500 mt-2">Baptiste Fort — Automatisation &amp; IA</p></div>
+</div></section>
+
+</div><!-- END TAB MAIN -->
+
+<!-- TAB 2 — DETAIL -->
+<div id="tab-detail" class="tab-panel">
+<!-- D1 — HERO DETAIL -->
+<section class="py-24 px-4 bg-neo-white"><div class="max-w-5xl mx-auto text-center">
+<div class="anim fu"><div class="inline-block bg-neo-dark text-white px-4 py-1 font-mono text-xs font-bold border-2 border-neo-dark mb-6">DETAIL DU PROJET</div>
+<h2 class="text-5xl md:text-6xl font-grotesk font-black leading-tight">Chaque brique,<br><span class="text-neo-blue">expliquee en detail.</span></h2>
+<p class="text-lg text-gray-500 mt-6 max-w-2xl mx-auto font-space">40 sections techniques et fonctionnelles. Tout ce que le systeme fait pour Mobil-e-t, etape par etape.</p>
+</div></div></section>
+
+<!-- D2 — LE PROBLEME SAV AUJOURD'HUI -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-red-500 font-bold">01 / PROBLEME</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Le probleme SAV aujourd'hui</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">Vous gerez le SAV via votre site, votre boite mail, et les echanges avec l'Italie. A chaque demande, vous devez retrouver l'historique, les specs du produit, les cas similaires. Ca prend du temps.</p></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card bg-red-50 p-8"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 bg-neo-red neo-border-2 flex items-center justify-center text-white font-bold">&#x2717;</div><h4 class="font-grotesk font-bold">Informations dispersees</h4></div><p class="text-gray-600 text-sm">Les specs produits sont dans un PDF, l'historique client dans les emails, les cas similaires dans votre tete. Chaque demande SAV necessite de tout rassembler manuellement.</p></div>
+<div class="anim fr d2 neo-card bg-red-50 p-8"><div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 bg-neo-red neo-border-2 flex items-center justify-center text-white font-bold">&#x2717;</div><h4 class="font-grotesk font-bold">Echanges Italie chronophages</h4></div><p class="text-gray-600 text-sm">Pour chaque demande de garantie, il faut preparer un dossier complet, traduire, joindre les references. Des allers-retours qui prennent des jours pour une reponse.</p></div>
+</div>
+</div></section>
+
+<!-- D3 — LA SOLUTION : MEMOIRE IA -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">02 / SOLUTION</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">La solution : une memoire IA</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">Une memoire IA qui connait tout : vos produits, vos clients, vos pannes passees. Elle vous assiste instantanement sur chaque demande, sans que vous ayez a chercher.</p></div>
+</div></section>
+
+<!-- D4 — MEMOIRE : PRODUITS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">03 / MEMOIRE PRODUITS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Ce que la memoire contient — Produits</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8 bg-neo-white"><h4 class="font-grotesk font-black text-lg mb-4">DAHU &amp; VENOM</h4>
+<ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Toutes les versions et variantes de chaque modele</li><li>&#8226; Fiches techniques completes (moteur, batterie, controleur, cadre)</li><li>&#8226; Numeros de chassis et correspondance pieces</li><li>&#8226; Conditions de garantie par composant</li><li>&#8226; Accessoires compatibles et configurations</li></ul></div>
+<div class="anim fr d2 neo-card p-8 bg-neo-white"><h4 class="font-grotesk font-black text-lg mb-4">Mises a jour continues</h4>
+<ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Nouvelles fiches produits ajoutees automatiquement</li><li>&#8226; Notes techniques du fabricant integrees</li><li>&#8226; Retours terrain enrichissent la base</li><li>&#8226; Pannes recurrentes documentees avec solutions</li><li>&#8226; La base grandit et s'ameliore avec le temps</li></ul></div>
+</div>
+</div></section>
+
+<!-- D5 — MEMOIRE : HISTORIQUE SAV -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">04 / HISTORIQUE SAV</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Ce que la memoire contient — Historique SAV</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Pannes connues</h4><p class="text-sm text-gray-600 font-space">Chaque panne rencontree est documentee : symptomes, diagnostic, solution appliquee. L'IA retrouve les cas similaires en secondes.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Procedures</h4><p class="text-sm text-gray-600 font-space">Procedures de diagnostic step-by-step. L'IA guide le client ou le technicien a travers les etapes de verification.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Echanges Italie</h4><p class="text-sm text-gray-600 font-space">Historique complet des echanges avec le fabricant. Decisions prises, pieces envoyees, delais. Plus besoin de rechercher dans les emails.</p></div>
+</div>
+</div></section>
+
+<!-- D6 — MEMOIRE : CLIENTS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">05 / CLIENTS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Ce que la memoire contient — Clients</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Historique des achats (modele, date, configuration)</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Demandes SAV precedentes et resolutions</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Contexte de chaque echange</li></ul></div>
+<div class="anim fr d2 neo-card p-8"><ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Pieces jointes et documents associes</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Etat de la garantie en temps reel</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Preferences et notes internes</li></ul></div>
+</div>
+</div></section>
+
+<!-- D7 — FLUX SAV COMPLET -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">06 / FLUX SAV</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Comment ca marche concretement</h3></div>
+<div class="space-y-4">
+<div class="anim fl d1 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">1</div><div><h4 class="font-grotesk font-black">Email arrive</h4><p class="text-sm text-gray-600 font-space mt-1">Le systeme detecte automatiquement chaque email SAV entrant. Pas besoin de transferer, pas besoin de copier. Il surveille votre boite en continu.</p></div></div>
+<div class="anim fl d2 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">2</div><div><h4 class="font-grotesk font-black">IA analyse</h4><p class="text-sm text-gray-600 font-space mt-1">Identifie le client, le produit concerne, le type de probleme. Croise avec l'historique pour trouver des cas similaires deja resolus.</p></div></div>
+<div class="anim fl d3 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">3</div><div><h4 class="font-grotesk font-black">Contexte enrichi</h4><p class="text-sm text-gray-600 font-space mt-1">L'IA recupere automatiquement la fiche produit, l'historique du client, les pannes similaires, et prepare un resume complet pour vous.</p></div></div>
+<div class="anim fl d4 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">4</div><div><h4 class="font-grotesk font-black">Vous decidez</h4><p class="text-sm text-gray-600 font-space mt-1">Une reponse est preparee pour vous. Vous la validez telle quelle, vous l'ajustez, ou vous la reecrivez. Le controle reste entre vos mains.</p></div></div>
+</div>
+</div></section>
+
+<!-- D8 — ECHANGES ITALIE -->
+<section class="py-20 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-yellow font-bold">07 / ITALIE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Echanges avec l'Italie</h3>
+<p class="text-gray-400 font-space mt-3 max-w-2xl">Pour les demandes de garantie ou les cas techniques complexes, l'IA prepare automatiquement un dossier complet. Plus d'allers-retours inutiles.</p></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-3">Ce que l'IA prepare</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Description technique exacte du probleme</li><li>&#8226; Traduction fidele, sans approximation</li><li>&#8226; Historique complet du produit joint</li><li>&#8226; References et numeros de chassis</li></ul></div>
+<div class="anim fr d2 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-3">Le resultat</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; L'Italie recoit un dossier complet du premier coup</li><li>&#8226; Temps de reponse divise par 3</li><li>&#8226; Plus de malentendus lies a la traduction</li><li>&#8226; Historique des decisions archivee automatiquement</li></ul></div>
+</div>
+</div></section>
+
+<!-- D9 — ARCHITECTURE TECHNIQUE SAV -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">08 / ARCHITECTURE SAV</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Architecture technique — SAV</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">n8n Workflows</h4><p class="text-sm text-gray-600 font-space">4 workflows principaux : detection email, analyse IA, enrichissement contexte, notification. Declenchement automatique, zero intervention.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Base de connaissances</h4><p class="text-sm text-gray-600 font-space">Stockage structure des fiches produits, historique SAV, clients. Indexation pour recherche rapide par l'IA. Mise a jour continue.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">API OpenAI</h4><p class="text-sm text-gray-600 font-space">GPT-4 pour l'analyse, la generation de reponses, et la traduction. Prompts specialises pour le contexte Mobil-e-t et le secteur velo/moto electrique.</p></div>
+</div>
+</div></section>
+
+<!-- D10 — CONNEXION EMAILS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">09 / EMAILS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Connexion emails &amp; site</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Boite mail</h4><p class="text-sm text-gray-600 font-space">Connexion IMAP a votre boite mail. Le systeme surveille les emails entrants et detecte automatiquement ceux qui concernent le SAV (mots-cles, expediteur, objet). Les autres sont ignores.</p></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Site web</h4><p class="text-sm text-gray-600 font-space">Integration avec les formulaires de contact de votre site. Quand un client soumet une demande SAV via le site, le systeme la capte et la traite comme un email. Meme flux, meme qualite.</p></div>
+</div>
+</div></section>
+
+<!-- D11 — DASHBOARD VUE GLOBALE -->
+<section class="py-20 px-4 bg-neo-purple text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-yellow font-bold">10 / DASHBOARD</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Dashboard — Vue d'ensemble</h3>
+<p class="text-purple-200 font-space mt-3 max-w-2xl">Un seul endroit pour tout voir. Plus besoin d'ouvrir Google Analytics, puis Stripe, puis vos emails. Tout est la, mis a jour automatiquement.</p></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim pop d1 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-2">Trafic</h4><p class="text-sm text-gray-600 font-space">Visiteurs, pages vues, sources, taux de rebond. Donnees Google Analytics en temps reel.</p></div>
+<div class="anim pop d2 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-2">Ventes</h4><p class="text-sm text-gray-600 font-space">CA, nombre de ventes, panier moyen, paiements echoues. Donnees Stripe synchronisees.</p></div>
+<div class="anim pop d3 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-2">SEO</h4><p class="text-sm text-gray-600 font-space">Impressions, clics, positions moyennes, mots-cles. Donnees Search Console automatiques.</p></div>
+</div>
+</div></section>
+
+<!-- D12 — GOOGLE ANALYTICS INTEGRATION -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">11 / GOOGLE ANALYTICS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Integration Google Analytics</h3></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<div class="grid md:grid-cols-4 gap-4">
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Visiteurs</p><p class="text-xs text-gray-400 font-space mt-1">temps reel</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Pages vues</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Sources de trafic</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Taux de rebond</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+</div>
+<p class="text-sm text-gray-500 font-space mt-6">Connexion via API Google Analytics 4. Les donnees sont recuperees automatiquement toutes les heures et affichees dans votre dashboard. Aucune configuration manuelle.</p>
+</div>
+</div></section>
+
+<!-- D13 — STRIPE INTEGRATION -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">12 / STRIPE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Integration Stripe</h3></div>
+<div class="anim fu neo-card p-8 bg-neo-white">
+<div class="grid md:grid-cols-4 gap-4">
+<div class="text-center p-4 bg-neo-purple/10 border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Chiffre d'affaires</p><p class="text-xs text-gray-400 font-space mt-1">temps reel</p></div>
+<div class="text-center p-4 bg-neo-purple/10 border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Nombre de ventes</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-purple/10 border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Panier moyen</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-red-100 border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Paiements echoues</p><p class="text-xs text-red-500 font-space mt-1">alerte auto</p></div>
+</div>
+<p class="text-sm text-gray-500 font-space mt-6">Connexion via API Stripe. Webhooks pour les alertes en temps reel (paiement echoue, remboursement). Historique complet accessible dans le dashboard.</p>
+</div>
+</div></section>
+
+<!-- D14 — SEARCH CONSOLE INTEGRATION -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">13 / SEARCH CONSOLE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Integration Search Console</h3></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<div class="grid md:grid-cols-4 gap-4">
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Impressions Google</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Clics</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Position moyenne</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+<div class="text-center p-4 bg-neo-white border-2 border-neo-dark"><p class="font-grotesk font-black text-sm">Mots-cles</p><p class="text-xs text-gray-400 font-space mt-1">automatique</p></div>
+</div>
+<p class="text-sm text-gray-500 font-space mt-6">Suivi de l'evolution de vos positions Google. Identification des mots-cles qui progressent et ceux qui stagnent. Lien direct avec la strategie SEO de la Phase 3.</p>
+</div>
+</div></section>
+
+<!-- D15 — CHATBOT IA -->
+<section class="py-20 px-4 bg-neo-blue text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-yellow font-bold">14 / CHATBOT IA</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Le Chatbot IA — Comment il fonctionne</h3>
+<p class="text-blue-200 font-space mt-3 max-w-2xl">Au lieu de naviguer dans des tableaux, vous posez simplement vos questions. Le chatbot a acces a toutes vos donnees connectees.</p></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6 bg-neo-white text-neo-dark"><p class="font-mono text-xs text-gray-400 mb-2">VOUS DEMANDEZ</p><p class="font-grotesk font-bold text-sm mb-4">"Combien de visiteurs ce mois-ci ?"</p><p class="font-mono text-xs text-gray-400 mb-2">LE CHATBOT REPOND</p><p class="text-sm text-gray-600 font-space">"Ce mois-ci : 2 847 visiteurs, +12% vs mois dernier. Les pages DAHU R1 et configurateur sont les plus vues."</p></div>
+<div class="anim fr d2 neo-card p-6 bg-neo-white text-neo-dark"><p class="font-mono text-xs text-gray-400 mb-2">VOUS DEMANDEZ</p><p class="font-grotesk font-bold text-sm mb-4">"Quel est mon CA depuis janvier ?"</p><p class="font-mono text-xs text-gray-400 mb-2">LE CHATBOT REPOND</p><p class="text-sm text-gray-600 font-space">"CA depuis janvier : 47 200 EUR. 8 ventes. Panier moyen : 5 900 EUR. Dernier paiement il y a 3 jours."</p></div>
+</div>
+<div class="anim fu d3 mt-8 p-6 bg-white/10 border-2 border-white/30"><p class="text-sm text-blue-200 font-space">Le chatbot comprend le contexte et vous donne des reponses precises, pas des chiffres bruts. Il peut croiser les donnees : "Les visiteurs qui viennent de Google achetent-ils plus que ceux de LinkedIn ?"</p></div>
+</div></section>
+
+<!-- D16 — ALERTES INTELLIGENTES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-red-500 font-bold">15 / ALERTES</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Alertes intelligentes</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6 bg-red-50"><h4 class="font-grotesk font-black mb-3 text-red-500">Paiement echoue</h4><p class="text-sm text-gray-600 font-space">Notification immediate quand un paiement Stripe echoue. Nom du client, montant, raison de l'echec. Vous pouvez recontacter le client dans la minute.</p></div>
+<div class="anim fu d2 neo-card p-6 bg-orange-50"><h4 class="font-grotesk font-black mb-3 text-neo-orange">Chute de trafic</h4><p class="text-sm text-gray-600 font-space">Si le trafic chute de plus de 20% par rapport a la semaine precedente, vous etes prevenu. Permet de reagir vite (probleme technique, penalite Google).</p></div>
+<div class="anim fr d3 neo-card p-6 bg-green-50"><h4 class="font-grotesk font-black mb-3 text-neo-green">Mot-cle qui monte</h4><p class="text-sm text-gray-600 font-space">Quand un de vos mots-cles gagne significativement en position Google, vous le savez. L'occasion de doubler la mise avec du contenu supplementaire.</p></div>
+</div>
+</div></section>
+
+<!-- D17 — ARCHITECTURE DASHBOARD -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">16 / ARCHITECTURE DASHBOARD</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Architecture technique — Dashboard</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Collecte n8n</h4><p class="text-sm text-gray-600 font-space">Workflows cron qui interrogent les APIs Google, Stripe, Search Console toutes les heures. Les donnees sont normalisees et stockees.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Interface web</h4><p class="text-sm text-gray-600 font-space">Dashboard accessible via navigateur, depuis n'importe quel appareil. Design responsive. Pas d'application a installer.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Chatbot API</h4><p class="text-sm text-gray-600 font-space">Le chatbot interroge la base de donnees via des fonctions. Il traduit votre question en requete, execute, et formule la reponse en langage naturel.</p></div>
+</div>
+</div></section>
+
+<!-- D18 — SEO VUE GLOBALE -->
+<section class="py-20 px-4 bg-neo-orange text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-yellow font-bold">17 / SEO</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Blog SEO — Vue d'ensemble</h3>
+<p class="text-orange-200 font-space mt-3 max-w-2xl">Aujourd'hui, vos pages ne sont pas bien indexees sur Google. Les gens qui cherchent "velo electrique 45 km/h" ou "DAHU vs LMX" ne vous trouvent pas. On change ca.</p></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-3">Le probleme</h4><p class="text-sm text-gray-600 font-space">Peu de contenu textuel sur votre site. Google n'a pas assez de matiere pour vous positionner sur les requetes cles. Vos concurrents publient du contenu, pas vous.</p></div>
+<div class="anim fr d2 neo-card p-6 bg-neo-white text-neo-dark"><h4 class="font-grotesk font-black mb-3">La solution</h4><p class="text-sm text-gray-600 font-space">30 articles par semaine, generes automatiquement a partir de votre expertise produit. Optimises pour les bons mots-cles. Avec du maillage interne vers vos pages produits.</p></div>
+</div>
+</div></section>
+
+<!-- D19 — SERPAPI & MOTS-CLES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">18 / MOTS-CLES</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Analyse des mots-cles — SerpAPI</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">SerpAPI analyse les resultats Google en temps reel. On identifie les requetes que les gens tapent vraiment, avec le volume de recherche et le niveau de concurrence.</p></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<div class="grid md:grid-cols-2 gap-8">
+<div><h4 class="font-grotesk font-black mb-4">Requetes a fort potentiel</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; "velo electrique 45 km/h"</li><li>&#8226; "DAHU vs LMX"</li><li>&#8226; "velo electrique puissant"</li><li>&#8226; "moto electrique homologuee route"</li><li>&#8226; "DAHU R1 avis"</li></ul></div>
+<div><h4 class="font-grotesk font-black mb-4">Criteres de selection</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Volume de recherche suffisant (&gt;100/mois)</li><li>&#8226; Concurrence faible a moyenne</li><li>&#8226; Intention d'achat ou d'information</li><li>&#8226; Pertinence directe avec vos produits</li><li>&#8226; Potentiel de conversion</li></ul></div>
+</div>
+</div>
+<div class="anim fu d2 mt-6 p-4 bg-neo-green/20 border-2 border-neo-dark"><p class="font-mono text-xs font-bold">COUT SERPAPI</p><p class="text-sm text-gray-600 font-space mt-1">SerpAPI est gratuit pour notre volume d'utilisation (100 requetes/mois). Aucun cout supplementaire.</p></div>
+</div></section>
+
+<!-- D20 — GEO VUE GLOBALE -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">19 / GEO</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">GEO — Generative Engine Optimization</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">De plus en plus de gens posent leurs questions a ChatGPT, Claude, et Perplexity au lieu de Google. Quand ils demandent "quel velo electrique puissant acheter ?", on veut que l'IA parle de DAHU.</p></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Le constat</h4><p class="text-sm text-gray-600 font-space">Aujourd'hui, ChatGPT cite VanMoof, Cowboy, mais pas DAHU quand on lui demande un velo electrique rapide. Pourquoi ? Parce qu'il n'a pas assez de contenu structure sur DAHU pour le comprendre et le recommander.</p></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">La strategie</h4><p class="text-sm text-gray-600 font-space">On cree du contenu specifiquement structure pour etre "compris" par les LLMs. Comparatifs detailles, FAQ structurees, cas d'usage precis. Le but : que ChatGPT cite Mobil-e-t dans ses reponses.</p></div>
+</div>
+</div></section>
+
+<!-- D21 — EXEMPLE GEO CONCRET -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">20 / EXEMPLE GEO</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Exemple concret de la strategie GEO</h3></div>
+<div class="space-y-4">
+<div class="anim fl d1 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">1</div><div><h4 class="font-grotesk font-black">Simulation</h4><p class="text-sm text-gray-600 font-space mt-1">"Quel est le meilleur velo electrique pour aller vite en ville ?" — On pose cette question a ChatGPT et on regarde ce qu'il repond aujourd'hui.</p></div></div>
+<div class="anim fl d2 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-orange text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">2</div><div><h4 class="font-grotesk font-black">Analyse</h4><p class="text-sm text-gray-600 font-space mt-1">ChatGPT cite VanMoof, Cowboy, mais pas DAHU. On identifie pourquoi : manque de contenu structure sur la vitesse et l'usage urbain du DAHU.</p></div></div>
+<div class="anim fl d3 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-green text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">3</div><div><h4 class="font-grotesk font-black">Contenu</h4><p class="text-sm text-gray-600 font-space mt-1">On cree un article "DAHU : le velo electrique 45 km/h legal en ville". Structure pour que ChatGPT le comprenne et le cite dans ses reponses futures.</p></div></div>
+</div>
+</div></section>
+
+<!-- D22 — TYPES DE CONTENUS SEO -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">21 / TYPES CONTENUS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Types de contenus generes</h3></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Comparatifs</h4><p class="text-sm text-gray-600 font-space">DAHU vs LMX, DAHU vs VanMoof, VENOM vs concurrents. Articles detailles avec specs, prix, avantages/inconvenients. Tres recherches sur Google.</p></div>
+<div class="anim fr d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Guides pratiques</h4><p class="text-sm text-gray-600 font-space">Entretien velo electrique, reglementation 45 km/h, comment choisir sa batterie. Contenu utile qui attire du trafic qualifie.</p></div>
+<div class="anim fl d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">FAQ</h4><p class="text-sm text-gray-600 font-space">Autonomie, vitesse, garantie, homologation. Questions frequentes structurees en schema FAQ pour Google et les LLMs.</p></div>
+<div class="anim fr d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Cas d'usage</h4><p class="text-sm text-gray-600 font-space">Camping-car, trajets urbains, DH electrique, livraison. Montrer les usages concrets avec des temoignages et des donnees.</p></div>
+</div>
+</div></section>
+
+<!-- D23 — AUTOMATISATION ARTICLES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">22 / AUTOMATISATION</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">30 articles par semaine — Automatises</h3></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<div class="grid md:grid-cols-4 gap-6 text-center">
+<div><div class="w-16 h-16 mx-auto bg-neo-blue text-white flex items-center justify-center font-mono font-bold text-xl border-2 border-neo-dark mb-3">1</div><h4 class="font-grotesk font-black text-sm">Mots-cles</h4><p class="text-xs text-gray-500 font-space mt-1">SerpAPI identifie les requetes a cibler cette semaine.</p></div>
+<div><div class="w-16 h-16 mx-auto bg-neo-purple text-white flex items-center justify-center font-mono font-bold text-xl border-2 border-neo-dark mb-3">2</div><h4 class="font-grotesk font-black text-sm">Generation</h4><p class="text-xs text-gray-500 font-space mt-1">GPT-4 redige l'article optimise SEO avec votre expertise produit en contexte.</p></div>
+<div><div class="w-16 h-16 mx-auto bg-neo-orange text-white flex items-center justify-center font-mono font-bold text-xl border-2 border-neo-dark mb-3">3</div><h4 class="font-grotesk font-black text-sm">Publication</h4><p class="text-xs text-gray-500 font-space mt-1">Publication automatique sur votre blog avec maillage interne.</p></div>
+<div><div class="w-16 h-16 mx-auto bg-neo-green text-white flex items-center justify-center font-mono font-bold text-xl border-2 border-neo-dark mb-3">4</div><h4 class="font-grotesk font-black text-sm">Suivi</h4><p class="text-xs text-gray-500 font-space mt-1">Indexation Google surveillee. On sait quels articles performent.</p></div>
+</div>
+</div>
+</div></section>
+
+<!-- D24 — INDEXATION GOOGLE -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">23 / INDEXATION</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Point important sur Google</h3></div>
+<div class="anim fu neo-card p-8 bg-neo-yellow/20 border-2 border-neo-dark">
+<p class="text-sm text-gray-700 font-space leading-relaxed">Google n'indexe pas immediatement tous les articles. Au debut, il en prendra <strong>7-8 sur 30</strong>. Mais au fur et a mesure que votre site gagne en autorite, ce taux augmente. C'est une strategie progressive mais tres puissante sur le long terme. Apres 3 mois, vous verrez les premiers resultats significatifs. Apres 6 mois, le trafic organique aura sensiblement augmente.</p>
+</div>
+</div></section>
+
+<!-- D25 — MAILLAGE INTERNE -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">24 / MAILLAGE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Maillage interne automatique</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">Chaque article contient des liens vers vos pages produits. Un article sur "le meilleur velo electrique rapide" pointe vers la page DAHU. Ca renforce votre SEO et guide le visiteur vers l'achat.</p></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Liens produits</h4><p class="text-sm text-gray-600 font-space">Chaque article mentionne naturellement un ou plusieurs produits avec lien direct vers la page de vente.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Articles connexes</h4><p class="text-sm text-gray-600 font-space">Liens entre articles complementaires. Un guide sur l'entretien renvoie vers un comparatif. Le visiteur reste sur votre site.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Autorite du domaine</h4><p class="text-sm text-gray-600 font-space">Plus il y a de liens internes coherents, plus Google considere votre site comme une reference sur le sujet.</p></div>
+</div>
+</div></section>
+
+<!-- D26 — LINKEDIN POURQUOI PAS FB/IG -->
+<section class="py-20 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-yellow font-bold">25 / LINKEDIN VS FB/IG</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Pourquoi uniquement LinkedIn</h3>
+<p class="text-gray-400 font-space mt-3 max-w-2xl">Je prefere etre honnete avec vous : automatiser Facebook et Instagram pour un produit premium comme le DAHU est risque. Voici pourquoi.</p></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8 bg-red-50 text-neo-dark"><h4 class="font-grotesk font-black text-lg mb-4 text-red-500">Les risques sur FB/Instagram</h4><ul class="space-y-3 text-sm text-gray-600 font-space"><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Contenu automatise percu comme generique par l'audience</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Visuels generes par IA detectables, ca casse la credibilite</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Image premium de DAHU/VENOM incompatible avec l'automatisation visible</li><li class="flex items-start gap-2"><span class="text-red-400 font-bold">&#10007;</span>Vos videos personnelles marchent 10x mieux que du contenu auto</li></ul></div>
+<div class="anim fr d2 neo-card p-8 bg-green-50 text-neo-dark"><h4 class="font-grotesk font-black text-lg mb-4 text-neo-green">Pourquoi LinkedIn fonctionne</h4><ul class="space-y-3 text-sm text-gray-600 font-space"><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Audience B2B et professionnelle, plus receptive au texte</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Contenu texte valorise (pas besoin de visuels IA)</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Coherent avec votre positionnement premium</li><li class="flex items-start gap-2"><span class="text-neo-green font-bold">&#10003;</span>Touche les decideurs et professionnels, pas les curieux</li></ul></div>
+</div>
+</div></section>
+
+<!-- D27 — LINKEDIN CONTENU -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">26 / CONTENU LINKEDIN</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Ce qu'on publie sur LinkedIn</h3></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">3-4 posts par semaine</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Retours d'experience clients (temoignages reformules)</li><li>&#8226; Actualites du secteur velo/moto electrique</li><li>&#8226; Coulisses (salons, essais, nouveautes)</li><li>&#8226; Conseils techniques (entretien, reglementation)</li></ul></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Votre role</h4><p class="text-sm text-gray-600 font-space">Vous continuez a poster vos videos personnelles quand vous en avez envie. Le systeme assure la presence reguliere entre vos posts. Les deux se completent. L'automatisation ne remplace pas votre touche personnelle, elle la complete.</p></div>
+</div>
+</div></section>
+
+<!-- D28 — LINKEDIN AUTOMATISATION -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">27 / AUTO LINKEDIN</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Automatisation LinkedIn</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Generation IA</h4><p class="text-sm text-gray-600 font-space">GPT-4 genere les textes a partir de votre expertise, de l'actualite du secteur, et des sujets qui engagent sur LinkedIn. Ton professionnel, pas de jargon IA.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Programmation</h4><p class="text-sm text-gray-600 font-space">Publication automatique aux horaires optimaux (mardi/mercredi/jeudi, 8h-9h ou 12h-13h). Pas de publication le weekend.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Hashtags</h4><p class="text-sm text-gray-600 font-space">Hashtags optimises et cibles : #VeloElectrique, #MobiliteDouce, #DAHU, etc. Pas de spam de hashtags, juste les plus pertinents.</p></div>
+</div>
+</div></section>
+
+<!-- D29 — STACK TECHNIQUE GLOBALE -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">28 / STACK</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Stack technique globale</h3></div>
+<div class="grid md:grid-cols-4 gap-4">
+<div class="anim fl d1 neo-card p-6 text-center"><p class="font-mono text-xs text-gray-400 mb-2">AUTOMATISATION</p><p class="font-grotesk font-black text-lg">n8n</p><p class="text-xs text-gray-500 font-space mt-1">Self-hosted, workflows visuels</p></div>
+<div class="anim fl d2 neo-card p-6 text-center"><p class="font-mono text-xs text-gray-400 mb-2">IA</p><p class="font-grotesk font-black text-lg">OpenAI GPT-4</p><p class="text-xs text-gray-500 font-space mt-1">Analyse, generation, traduction</p></div>
+<div class="anim fr d2 neo-card p-6 text-center"><p class="font-mono text-xs text-gray-400 mb-2">SEO</p><p class="font-grotesk font-black text-lg">SerpAPI</p><p class="text-xs text-gray-500 font-space mt-1">Analyse mots-cles, gratuit</p></div>
+<div class="anim fr d1 neo-card p-6 text-center"><p class="font-mono text-xs text-gray-400 mb-2">SERVEUR</p><p class="font-grotesk font-black text-lg">VPS OVH/Hetzner</p><p class="text-xs text-gray-500 font-space mt-1">2 vCPU, 4 Go RAM</p></div>
+</div>
+</div></section>
+
+<!-- D30 — VPS & HEBERGEMENT -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">29 / HEBERGEMENT</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">VPS &amp; Hebergement</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Votre serveur</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; VPS dedie chez OVH ou Hetzner</li><li>&#8226; 2 vCPU, 4 Go RAM — largement suffisant</li><li>&#8226; n8n auto-heberge (pas de version cloud limitee)</li><li>&#8226; Docker pour isolation et mise a jour facile</li><li>&#8226; Backups automatiques quotidiens</li></ul></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Propriete</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Le serveur est a votre nom, vous en etes proprietaire</li><li>&#8226; Pas de plateforme proprietaire, pas de lock-in</li><li>&#8226; Si vous arretez de travailler avec moi, tout continue</li><li>&#8226; Acces SSH complet si vous le souhaitez</li><li>&#8226; Documentation technique fournie</li></ul></div>
+</div>
+</div></section>
+
+<!-- D31 — COUTS DETAILLES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">30 / COUTS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Couts de fonctionnement detailles</h3></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<table class="w-full text-sm text-left font-space">
+<thead><tr class="border-b-2 border-neo-dark"><th class="p-3 font-grotesk font-black">Poste</th><th class="p-3 font-grotesk font-black">Detail</th><th class="p-3 font-grotesk font-black text-right">Cout/mois</th></tr></thead>
+<tbody class="text-gray-600">
+<tr class="border-b border-gray-200"><td class="p-3">VPS (n8n)</td><td class="p-3">2 vCPU, 4 Go RAM</td><td class="p-3 text-right font-bold">8-15 &euro;</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">IA — SAV</td><td class="p-3">Analyse, reponses, traduction</td><td class="p-3 text-right font-bold">5-15 &euro;</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">IA — SEO/GEO</td><td class="p-3">30 articles/semaine</td><td class="p-3 text-right font-bold">10-25 &euro;</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">IA — LinkedIn</td><td class="p-3">3-4 posts/semaine</td><td class="p-3 text-right font-bold">3-8 &euro;</td></tr>
+<tr class="border-b border-gray-200"><td class="p-3">SerpAPI</td><td class="p-3">Analyse mots-cles</td><td class="p-3 text-right font-bold text-neo-green">0 &euro;</td></tr>
+<tr class="bg-neo-yellow/20"><td class="p-3 font-grotesk font-black" colspan="2">TOTAL</td><td class="p-3 text-right font-grotesk font-black text-lg">50-75 &euro;</td></tr>
+</tbody></table>
+</div>
+</div></section>
+
+<!-- D32 — SECURITE & DONNEES -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">31 / SECURITE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Securite &amp; donnees</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Protection</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; HTTPS sur toutes les communications</li><li>&#8226; API keys chiffrees et stockees de maniere securisee</li><li>&#8226; Acces VPS par cle SSH uniquement</li><li>&#8226; Pare-feu configure, ports non utilises fermes</li></ul></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Donnees</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Vos donnees restent sur votre serveur</li><li>&#8226; Rien n'est stocke chez un tiers (sauf APIs officielles)</li><li>&#8226; Backups quotidiens automatiques</li><li>&#8226; Droit de suppression : vous pouvez tout effacer a tout moment</li></ul></div>
+</div>
+</div></section>
+
+<!-- D33 — FORMATION -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">32 / FORMATION</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Formation &amp; documentation</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Formation live</h4><p class="text-sm text-gray-600 font-space">Session de formation en visio a chaque livraison de phase. On parcourt le systeme ensemble, vous posez vos questions, on ajuste si besoin.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Documentation</h4><p class="text-sm text-gray-600 font-space">Guide technique complet : comment ca marche, comment modifier les parametres, comment ajouter du contenu a la base de connaissances.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Videos</h4><p class="text-sm text-gray-600 font-space">Videos courtes pour les operations courantes : valider une reponse SAV, consulter le dashboard, comprendre les stats. Accessibles a tout moment.</p></div>
+</div>
+</div></section>
+
+<!-- D34 — SUPPORT -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">33 / SUPPORT</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Support post-livraison</h3></div>
+<div class="anim fu neo-card p-8">
+<div class="grid md:grid-cols-2 gap-8">
+<div><h4 class="font-grotesk font-black mb-4">Inclus (1 mois)</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Reponse sous 24h par email ou WhatsApp</li><li>&#8226; Corrections de bugs</li><li>&#8226; Ajustements mineurs de configuration</li><li>&#8226; Mise a jour base de connaissances</li></ul></div>
+<div><h4 class="font-grotesk font-black mb-4">Apres le support inclus</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; Maintenance ponctuelle sur devis</li><li>&#8226; Evolutions et nouvelles fonctionnalites sur devis</li><li>&#8226; Le systeme continue de tourner sans moi</li><li>&#8226; Tarif preferentiel pour les clients existants</li></ul></div>
+</div>
+</div>
+</div></section>
+
+<!-- D35 — PLANNING SEMAINE PAR SEMAINE -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">34 / PLANNING DETAILLE</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Planning semaine par semaine</h3></div>
+<div class="space-y-3">
+<div class="anim fl d1 flex items-start gap-4 p-3 bg-neo-blue/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S1-S2</div><div class="text-sm text-gray-600 font-space"><strong>Phase 1 :</strong> Collecte fiches produits, configuration base de connaissances, connexion IMAP</div></div>
+<div class="anim fl d2 flex items-start gap-4 p-3 bg-neo-blue/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S3-S4</div><div class="text-sm text-gray-600 font-space"><strong>Phase 1 :</strong> Workflows n8n SAV, analyse IA, generation reponses, traduction Italie, tests</div></div>
+<div class="anim fl d3 flex items-start gap-4 p-3 bg-neo-purple/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S5-S6</div><div class="text-sm text-gray-600 font-space"><strong>Phase 2 :</strong> Integrations APIs Google Analytics, Stripe, Search Console. Dashboard web.</div></div>
+<div class="anim fl d4 flex items-start gap-4 p-3 bg-neo-purple/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S7-S8</div><div class="text-sm text-gray-600 font-space"><strong>Phase 2 :</strong> Chatbot IA, alertes intelligentes, tests et ajustements</div></div>
+<div class="anim fl d5 flex items-start gap-4 p-3 bg-neo-orange/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S9-S10</div><div class="text-sm text-gray-600 font-space"><strong>Phase 3 :</strong> Strategie SEO/GEO, configuration SerpAPI, workflows articles automatiques</div></div>
+<div class="anim fl d6 flex items-start gap-4 p-3 bg-neo-green/10 border-2 border-neo-dark"><div class="w-16 font-mono font-bold text-xs text-neo-dark">S11-S12</div><div class="text-sm text-gray-600 font-space"><strong>Phase 4 :</strong> Automatisation LinkedIn, generation contenu, programmation, tests finaux</div></div>
+</div>
+</div></section>
+
+<!-- D36 — RISQUES & POINTS BLOQUANTS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-red-500 font-bold">35 / RISQUES</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Points bloquants &amp; risques</h3></div>
+<div class="space-y-4">
+<div class="anim fl d1 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-yellow text-neo-dark flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">!</div><div><h4 class="font-grotesk font-black">Acces a vos donnees</h4><p class="text-sm text-gray-600 font-space mt-1">J'ai besoin de vos acces API (Google Analytics, Stripe, Search Console, boite mail). Sans ca, le systeme ne peut pas se connecter. On fait ca ensemble lors du setup.</p></div></div>
+<div class="anim fl d2 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-yellow text-neo-dark flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">!</div><div><h4 class="font-grotesk font-black">Fiches produits</h4><p class="text-sm text-gray-600 font-space mt-1">La qualite de la memoire IA depend des fiches produits que vous me fournissez. Plus elles sont detaillees, plus l'IA sera precise et utile.</p></div></div>
+<div class="anim fl d3 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">i</div><div><h4 class="font-grotesk font-black">Couts IA variables</h4><p class="text-sm text-gray-600 font-space mt-1">Les couts OpenAI dependent du volume. L'estimation 50-75€/mois est basee sur une utilisation normale. En cas de pic, on peut ajuster les parametres pour rester dans le budget.</p></div></div>
+<div class="anim fl d4 neo-card p-6 flex gap-6 items-start"><div class="w-10 h-10 bg-neo-blue text-white flex-shrink-0 flex items-center justify-center font-mono font-bold border-2 border-neo-dark">i</div><div><h4 class="font-grotesk font-black">Indexation Google progressive</h4><p class="text-sm text-gray-600 font-space mt-1">Les resultats SEO ne sont pas immediats. C'est une strategie a moyen/long terme. Les premiers effets visibles arrivent apres 2-3 mois de publication reguliere.</p></div></div>
+</div>
+</div></section>
+
+<!-- D37 — N8N EN DETAIL -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">36 / N8N</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">n8n — Le moteur d'automatisation</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Qu'est-ce que n8n ?</h4><p class="text-sm text-gray-600 font-space">n8n est un outil d'automatisation open-source. C'est comme Zapier, mais auto-heberge sur votre serveur. Pas de limites d'execution, pas d'abonnement mensuel. Vous etes proprietaire de tout.</p></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Workflows prevus</h4><ul class="space-y-2 text-sm text-gray-600 font-space"><li>&#8226; SAV : detection email → analyse IA → reponse preparee</li><li>&#8226; Dashboard : collecte APIs → stockage → affichage</li><li>&#8226; SEO : mots-cles → generation article → publication</li><li>&#8226; LinkedIn : generation post → programmation → publication</li><li>&#8226; Alertes : surveillance → detection anomalie → notification</li></ul></div>
+</div>
+</div></section>
+
+<!-- D38 — OPENAI EN DETAIL -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">37 / OPENAI</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">OpenAI — Details techniques</h3></div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="anim fl d1 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Modeles utilises</h4><ul class="space-y-3 text-sm text-gray-600 font-space"><li><strong>GPT-4 Turbo</strong> — Pour les articles longs et les analyses complexes SAV. Meilleure qualite.</li><li><strong>GPT-3.5 Turbo</strong> — Pour les posts LinkedIn courts et les reponses simples. Rapport qualite/cout optimal.</li></ul></div>
+<div class="anim fr d2 neo-card p-8"><h4 class="font-grotesk font-black text-lg mb-4">Optimisations</h4><ul class="space-y-3 text-sm text-gray-600 font-space"><li>&#8226; Prompts specialises pour le secteur velo/moto electrique</li><li>&#8226; Contexte Mobil-e-t injecte dans chaque appel</li><li>&#8226; Cache intelligent pour eviter les generations redondantes</li><li>&#8226; Fallback GPT-3.5 si GPT-4 indisponible</li></ul></div>
+</div>
+</div></section>
+
+<!-- D39 — EVOLUTIONS FUTURES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">38 / EVOLUTIONS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Evolutions futures</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">Le systeme est concu pour evoluer. Voici ce qu'on pourra ajouter apres la validation de la V1.</p></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6"><div class="inline-block bg-neo-yellow/20 px-2 py-1 font-mono text-xs font-bold mb-3">PRIORITE HAUTE</div><h4 class="font-grotesk font-black mb-2">SMS Twilio</h4><p class="text-sm text-gray-600 font-space">Sollicitations SAV par SMS. Taux d'ouverture superieur a l'email. ~0.07€/SMS.</p></div>
+<div class="anim fr d1 neo-card p-6"><div class="inline-block bg-neo-yellow/20 px-2 py-1 font-mono text-xs font-bold mb-3">PRIORITE HAUTE</div><h4 class="font-grotesk font-black mb-2">WhatsApp Business</h4><p class="text-sm text-gray-600 font-space">Canal SAV via WhatsApp. API Meta Business, templates pre-approuves.</p></div>
+<div class="anim fl d2 neo-card p-6"><div class="inline-block bg-neo-blue/20 px-2 py-1 font-mono text-xs font-bold mb-3">PRIORITE MOYENNE</div><h4 class="font-grotesk font-black mb-2">CRM client</h4><p class="text-sm text-gray-600 font-space">Mini-CRM integre pour centraliser la relation client. Historique complet, pipeline.</p></div>
+<div class="anim fr d2 neo-card p-6"><div class="inline-block bg-neo-blue/20 px-2 py-1 font-mono text-xs font-bold mb-3">PRIORITE MOYENNE</div><h4 class="font-grotesk font-black mb-2">Chatbot site web</h4><p class="text-sm text-gray-600 font-space">Widget chatbot sur votre site pour les visiteurs. Reponses automatiques aux questions frequentes.</p></div>
+</div>
+</div></section>
+
+<!-- D40 — POURQUOI MOI -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">39 / POURQUOI MOI</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Pourquoi travailler avec moi</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Specialiste IA &amp; automatisation</h4><p class="text-sm text-gray-600 font-space">Ce n'est pas un side-project. C'est ce que je fais tous les jours. n8n, OpenAI, integrations API — c'est mon metier.</p></div>
+<div class="anim fu d2 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Transparence totale</h4><p class="text-sm text-gray-600 font-space">Pas de boite noire. Vous voyez comment ca marche, vous avez acces a tout. Documentation, formation, code source. Le systeme vous appartient.</p></div>
+<div class="anim fr d3 neo-card p-6"><h4 class="font-grotesk font-black mb-3">Honnete sur les limites</h4><p class="text-sm text-gray-600 font-space">Je vous ai dit non pour Facebook/Instagram. Je prefere vous proposer ce qui marche vraiment plutot que de vendre du reve. Si quelque chose n'est pas pertinent, je vous le dis.</p></div>
+</div>
+</div></section>
+
+<!-- D41 — CTA DETAIL -->
+<section class="py-24 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-3xl mx-auto text-center">
+<div class="anim fu">
+<h2 class="text-4xl md:text-5xl font-grotesk font-black mb-6">Des questions ?</h2>
+<p class="text-lg text-gray-400 font-space mb-10">N'hesitez pas a me contacter pour approfondir n'importe quel point. Je suis disponible pour en discuter a tout moment.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="https://wa.me/33626105640" target="_blank" class="neo-btn bg-[#25D366] text-white px-8 py-4 text-base flex items-center justify-center gap-3"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.609l4.525-1.482A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.508-.657-6.363-1.795l-.444-.27-2.688.88.892-2.642-.293-.462A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>WhatsApp</a>
+<a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="neo-btn bg-[#0A66C2] text-white px-8 py-4 text-base flex items-center justify-center gap-3"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+</div>
+<p class="mt-8 font-mono text-sm text-gray-500">Baptiste Fort — Automatisation &amp; IA — 06 26 10 56 40</p>
+</div>
+</div></section>
+</div>
+
+<!-- TAB 3 — DEVIS -->
+<div id="tab-devis" class="tab-panel">
+<!-- DEVIS S1 — HERO -->
+<section class="py-24 px-4 bg-neo-white"><div class="max-w-5xl mx-auto text-center">
+<div class="anim fu"><div class="inline-block bg-neo-dark text-white px-4 py-1 font-mono text-xs font-bold border-2 border-neo-dark mb-6">DEVIS</div>
+<h2 class="text-5xl md:text-6xl font-grotesk font-black leading-tight">Votre investissement,<br><span class="text-neo-blue">en detail.</span></h2>
+<p class="text-lg text-gray-500 mt-6 max-w-2xl mx-auto font-space">Tout est transparent. Chaque euro est justifie. Pas de surprise, pas d'abonnement cache.</p>
+</div></div></section>
+
+<!-- DEVIS S2 — PHASE 1 INCLUS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-8"><span class="font-mono text-xs text-neo-blue font-bold">PHASE 1</span>
+<h3 class="text-3xl font-grotesk font-black mt-2">SAV &amp; Memoire IA — 3 600 &euro;</h3></div>
+<div class="anim fu neo-card p-8">
+<ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Base de connaissances IA complete (produits DAHU, VENOM, specs, chassis, garanties)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Historique SAV centralise (pannes connues, diagnostics, solutions appliquees)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Connexion automatique a votre boite mail (detection emails SAV entrants)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Integration avec votre site web (formulaires de contact SAV)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Analyse IA de chaque demande (identification client, produit, probleme)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Generation automatique de reponses preparees (vous validez ou ajustez)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Preparation automatique des dossiers garantie pour l'Italie (traduction incluse)</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold mt-0.5">&#10003;</span>Workflows n8n : detection, analyse, enrichissement, notification</li>
+</ul>
+</div></div></section>
+
+<!-- DEVIS S3 — PHASE 2 INCLUS -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-8"><span class="font-mono text-xs text-neo-purple font-bold">PHASE 2</span>
+<h3 class="text-3xl font-grotesk font-black mt-2">Dashboard &amp; Chatbot IA — 2 400 &euro;</h3></div>
+<div class="anim fu neo-card p-8">
+<ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Dashboard unifie avec tous vos KPIs en temps reel</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Integration Google Analytics (visiteurs, pages vues, sources, taux de rebond)</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Integration Stripe (CA, ventes, panier moyen, paiements echoues)</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Integration Search Console (impressions, clics, positions, mots-cles)</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Chatbot IA en langage naturel (posez vos questions, il repond avec vos donnees)</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Systeme d'alertes intelligentes (paiement echoue, chute de trafic, mot-cle qui monte)</li>
+<li class="flex items-start gap-2"><span class="text-neo-purple font-bold mt-0.5">&#10003;</span>Interface web accessible depuis n'importe quel appareil</li>
+</ul>
+</div></div></section>
+
+<!-- DEVIS S4 — PHASE 3 INCLUS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-8"><span class="font-mono text-xs text-neo-orange font-bold">PHASE 3</span>
+<h3 class="text-3xl font-grotesk font-black mt-2">Blog SEO &amp; GEO — 2 800 &euro;</h3></div>
+<div class="anim fu neo-card p-8">
+<ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Strategie SEO complete (analyse SerpAPI, mots-cles a fort potentiel)</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Strategie GEO (simulation requetes ChatGPT, Claude, Perplexity)</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Automatisation : 30 articles/semaine generes et publies automatiquement</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Types de contenu : comparatifs, guides pratiques, FAQ, cas d'usage</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Maillage interne automatique vers vos pages produits</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Structure optimisee pour les LLMs (ChatGPT cite Mobil-e-t dans ses reponses)</li>
+<li class="flex items-start gap-2"><span class="text-neo-orange font-bold mt-0.5">&#10003;</span>Workflows n8n : recherche mots-cles → generation → publication → suivi indexation</li>
+</ul>
+</div></div></section>
+
+<!-- DEVIS S5 — PHASE 4 INCLUS -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-8"><span class="font-mono text-xs text-neo-green font-bold">PHASE 4</span>
+<h3 class="text-3xl font-grotesk font-black mt-2">LinkedIn Automatise — 1 300 &euro;</h3></div>
+<div class="anim fu neo-card p-8">
+<ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Generation automatique de 3-4 posts LinkedIn par semaine</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Types de posts : retours clients, actus secteur, coulisses, conseils techniques</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Programmation automatique aux horaires optimaux</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Hashtags optimises et cibles</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Compatible avec vos posts video personnels (le systeme complete entre vos publications)</li>
+<li class="flex items-start gap-2"><span class="text-neo-green font-bold mt-0.5">&#10003;</span>Workflow n8n : generation → programmation → publication</li>
+</ul>
+</div></div></section>
+
+<!-- DEVIS S6 — TARIFICATION -->
+<section class="py-24 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-4xl mx-auto text-center">
+<div class="anim fu mb-12"><div class="inline-block bg-neo-yellow text-neo-dark px-4 py-1 font-mono text-xs font-bold border-2 border-neo-yellow mb-4">INVESTISSEMENT TOTAL</div>
+<h2 class="text-4xl md:text-5xl font-grotesk font-black">10 100 &euro;</h2>
+<p class="text-lg text-gray-400 mt-4 font-space">Livraison complete en 3 mois — Formation incluse</p></div>
+<div class="anim fu d2 neo-card bg-neo-white text-neo-dark p-10 max-w-xl mx-auto">
+<h3 class="font-grotesk font-black text-2xl mb-8">Paiement en 4 fois sans frais</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-neo-blue/10 border-2 border-neo-dark" style="box-shadow:3px 3px 0 #0a0a0a"><div class="text-left"><p class="font-grotesk font-black">A la signature</p><p class="text-xs text-gray-500 font-space">Demarrage du projet</p></div><div class="font-mono font-bold text-2xl text-neo-blue">2 525 &euro;</div></div>
+<div class="flex items-center justify-between p-4 bg-neo-purple/10 border-2 border-neo-dark" style="box-shadow:3px 3px 0 #0a0a0a"><div class="text-left"><p class="font-grotesk font-black">Livraison Phase 1</p><p class="text-xs text-gray-500 font-space">SAV &amp; Memoire IA OK</p></div><div class="font-mono font-bold text-2xl text-neo-purple">2 525 &euro;</div></div>
+<div class="flex items-center justify-between p-4 bg-neo-orange/10 border-2 border-neo-dark" style="box-shadow:3px 3px 0 #0a0a0a"><div class="text-left"><p class="font-grotesk font-black">Livraison Phase 2</p><p class="text-xs text-gray-500 font-space">Dashboard &amp; Chatbot OK</p></div><div class="font-mono font-bold text-2xl text-neo-orange">2 525 &euro;</div></div>
+<div class="flex items-center justify-between p-4 bg-neo-green/10 border-2 border-neo-dark" style="box-shadow:3px 3px 0 #0a0a0a"><div class="text-left"><p class="font-grotesk font-black">Livraison Phase 3 &amp; 4</p><p class="text-xs text-gray-500 font-space">SEO + LinkedIn OK — Projet termine</p></div><div class="font-mono font-bold text-2xl text-neo-green">2 525 &euro;</div></div>
+</div></div>
+</div></section>
+
+<!-- DEVIS S7 — COUTS MENSUELS -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-purple font-bold">FONCTIONNEMENT</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Couts mensuels une fois en place</h3>
+<p class="text-gray-500 font-space mt-3 max-w-2xl">Une fois le systeme livre, voici ce que ca coute de le faire tourner. Pas de surprise, pas d'abonnement cache.</p></div>
+<div class="anim fu neo-card p-8 bg-gray-50">
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-neo-white border-2 border-neo-dark"><div><p class="font-grotesk font-bold text-sm">VPS (n8n auto-heberge)</p><p class="text-xs text-gray-400 font-space">2 vCPU, 4 Go RAM — OVH/Hetzner</p></div><div class="font-mono font-bold text-sm">8 — 15 &euro;</div></div>
+<div class="flex items-center justify-between p-3 bg-neo-white border-2 border-neo-dark"><div><p class="font-grotesk font-bold text-sm">IA — SAV &amp; Memoire</p><p class="text-xs text-gray-400 font-space">Analyse emails, reponses, traduction</p></div><div class="font-mono font-bold text-sm">5 — 15 &euro;</div></div>
+<div class="flex items-center justify-between p-3 bg-neo-white border-2 border-neo-dark"><div><p class="font-grotesk font-bold text-sm">IA — SEO &amp; GEO</p><p class="text-xs text-gray-400 font-space">Generation 30 articles/semaine</p></div><div class="font-mono font-bold text-sm">10 — 25 &euro;</div></div>
+<div class="flex items-center justify-between p-3 bg-neo-white border-2 border-neo-dark"><div><p class="font-grotesk font-bold text-sm">IA — LinkedIn</p><p class="text-xs text-gray-400 font-space">Generation posts</p></div><div class="font-mono font-bold text-sm">3 — 8 &euro;</div></div>
+<div class="flex items-center justify-between p-3 bg-neo-white border-2 border-neo-dark"><div><p class="font-grotesk font-bold text-sm">SerpAPI</p><p class="text-xs text-gray-400 font-space">Analyse mots-cles SEO</p></div><div class="font-mono font-bold text-sm text-neo-green">0 &euro;</div></div>
+<div class="flex items-center justify-between p-4 bg-neo-yellow/20 border-2 border-neo-dark" style="box-shadow:3px 3px 0 #0a0a0a"><div><p class="font-grotesk font-black">TOTAL MENSUEL</p></div><div class="font-mono font-bold text-xl">50 — 75 &euro;</div></div>
+</div>
+</div>
+<div class="anim fu d2 grid grid-cols-3 gap-4 mt-8">
+<div class="neo-card p-4 text-center"><p class="text-neo-green font-bold text-sm">&#10003;</p><p class="text-xs text-gray-600 font-space mt-1">Aucun abonnement cache. Vous payez l'usage reel.</p></div>
+<div class="neo-card p-4 text-center"><p class="text-neo-green font-bold text-sm">&#10003;</p><p class="text-xs text-gray-600 font-space mt-1">Couts ajustables. Moins d'activite = moins de couts.</p></div>
+<div class="neo-card p-4 text-center"><p class="text-neo-green font-bold text-sm">&#10003;</p><p class="text-xs text-gray-600 font-space mt-1">Pas de dependance. Le systeme vous appartient.</p></div>
+</div>
+</div></section>
+
+<!-- DEVIS S8 — CE QUI EST INCLUS -->
+<section class="py-20 px-4 bg-gray-50" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-blue font-bold">INCLUS</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Ce qui est inclus dans le prix</h3></div>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="anim fl d1 neo-card p-6"><ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Installation et configuration complete</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Integration avec vos outils existants</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Formation gratuite sur le systeme</li>
+</ul></div>
+<div class="anim fr d2 neo-card p-6"><ul class="space-y-3 text-sm text-gray-600 font-space">
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Documentation technique</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Support pendant 1 mois apres livraison</li>
+<li class="flex items-start gap-2"><span class="text-neo-blue font-bold">&#10003;</span>Le systeme vous appartient — aucune dependance</li>
+</ul></div>
+</div>
+</div></section>
+
+<!-- DEVIS S9 — GARANTIES -->
+<section class="py-20 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto">
+<div class="anim fu mb-12"><span class="font-mono text-xs text-neo-green font-bold">GARANTIES</span>
+<h3 class="text-3xl md:text-4xl font-grotesk font-black mt-2">Engagements</h3></div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="anim fl d1 neo-card p-8 text-center"><div class="text-3xl mb-4 egg">&#128170;</div><h4 class="font-grotesk font-black mb-3">Resultats progressifs</h4><p class="text-sm text-gray-600 font-space">Chaque phase est independante. Vous voyez les resultats au fur et a mesure, pas a la fin. Vous payez a la livraison de chaque phase.</p></div>
+<div class="anim fu d2 neo-card p-8 text-center"><div class="text-3xl mb-4 egg">&#128274;</div><h4 class="font-grotesk font-black mb-3">Le systeme vous appartient</h4><p class="text-sm text-gray-600 font-space">Tout est heberge sur votre VPS. Pas de plateforme proprietaire. Si vous arretez de travailler avec moi, tout continue a tourner.</p></div>
+<div class="anim fr d3 neo-card p-8 text-center"><div class="text-3xl mb-4 egg">&#128222;</div><h4 class="font-grotesk font-black mb-3">Support reactif</h4><p class="text-sm text-gray-600 font-space">1 mois de support inclus apres livraison. Reponse sous 24h. Ajustements mineurs inclus. Extensions sur devis separe.</p></div>
+</div>
+</div></section>
+
+<!-- DEVIS S10 — CTA FINAL -->
+<section class="py-24 px-4 bg-neo-dark text-white" style="border-top:3px solid #0a0a0a"><div class="max-w-3xl mx-auto text-center">
+<div class="anim fu">
+<h2 class="text-4xl md:text-5xl font-grotesk font-black mb-6">Pret a demarrer ?</h2>
+<p class="text-lg text-gray-400 font-space mb-4">Cette proposition est faite pour vous faire gagner du temps, pas pour vous en ajouter. Tout tourne en automatique. Vous gardez le controle, le systeme fait le travail.</p>
+<p class="text-gray-500 font-space mb-10">On peut en reparler debut de semaine prochaine pour valider ou ajuster.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="https://wa.me/33626105640" target="_blank" class="neo-btn bg-[#25D366] text-white px-10 py-5 text-lg flex items-center justify-center gap-3"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.609l4.525-1.482A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.336 0-4.508-.657-6.363-1.795l-.444-.27-2.688.88.892-2.642-.293-.462A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>Me recontacter</a>
+<a href="https://www.linkedin.com/in/baptiste-fort-46873524b/" target="_blank" class="neo-btn bg-[#0A66C2] text-white px-10 py-5 text-lg flex items-center justify-center gap-3"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+</div>
+<p class="mt-8 font-mono text-sm text-gray-500">Baptiste Fort — Automatisation &amp; IA — 06 26 10 56 40</p>
+</div>
+</div></section>
+</div>
+
+<!-- FOOTER -->
+<footer class="py-8 px-4 bg-neo-white" style="border-top:3px solid #0a0a0a"><div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2"><span class="font-grotesk font-bold text-sm">BAPTISTE</span><span class="text-neo-blue font-grotesk font-bold text-sm">/</span><span class="font-grotesk font-bold text-sm">FORT</span></div>
+<div class="text-xs text-gray-400 font-space">Proposition MOBIL-E-T — Janvier 2026 — Baptiste Fort</div>
+</div></footer>
+
+<!-- JS -->
+<script>
+function switchTab(t){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.querySelector('[data-tab="'+t+'"]')?.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{document.querySelectorAll('.anim').forEach(el=>obs.observe(el))},200)}
+function closeMob(){document.getElementById('mob-menu').classList.remove('open');document.getElementById('mob-overlay').classList.add('hidden')}
+document.getElementById('mob-btn')?.addEventListener('click',()=>{document.getElementById('mob-menu').classList.add('open');document.getElementById('mob-overlay').classList.remove('hidden')});
+document.getElementById('mob-close')?.addEventListener('click',closeMob);
+document.getElementById('mob-overlay')?.addEventListener('click',closeMob);
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.anim').forEach(el=>obs.observe(el));
+document.querySelectorAll('.counter').forEach(c=>{const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){const t=parseInt(c.dataset.target);let cur=0;const inc=Math.max(1,Math.floor(t/60));const timer=setInterval(()=>{cur+=inc;if(cur>=t){cur=t;clearInterval(timer)}c.textContent=cur>999?cur.toLocaleString():cur},30);io.disconnect()}},{threshold:.5});io.observe(c)});
+document.addEventListener('click',e=>{if(Math.random()>.7)return;const colors=['#4361ee','#7209b7','#f72585','#ff6b35','#06d6a0','#ffd166'];for(let i=0;i<8;i++){const d=document.createElement('div');d.className='click-burst';d.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;width:8px;height:8px;border-radius:50%;background:${colors[Math.floor(Math.random()*colors.length)]};`;document.body.appendChild(d);const a=Math.random()*Math.PI*2,dist=40+Math.random()*60;d.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*dist}px,${Math.sin(a)*dist}px) scale(0)`,opacity:0}],{duration:600+Math.random()*400,easing:'cubic-bezier(.16,1,.3,1)'});setTimeout(()=>d.remove(),1000)}});
+</script>
 </body>
 </html>
